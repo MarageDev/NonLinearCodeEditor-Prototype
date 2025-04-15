@@ -1,0 +1,28 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="NLCE-Prototype"
+run/main_scene="uid://dvnrm1ejr1ag6"
+config/features=PackedStringArray("4.4", "Mobile")
+config/icon="res://icon.svg"
+
+[display]
+
+window/size/borderless=true
+
+[gui]
+
+theme/custom="uid://0otub1cq8um6"
+
+[rendering]
+
+renderer/rendering_method="mobile"

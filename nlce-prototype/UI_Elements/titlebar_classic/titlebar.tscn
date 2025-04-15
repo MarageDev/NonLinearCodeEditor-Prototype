@@ -1,0 +1,86 @@
+[gd_scene load_steps=5 format=3 uid="uid://bx84lomb08lr8"]
+
+[ext_resource type="Script" uid="uid://6jcaxm0feey3" path="res://UI_Elements/titlebar/titlebar_script.gd" id="1_roaft"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6lfk"]
+bg_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
+border_width_bottom = 1
+border_color = Color(0.176471, 0.176471, 0.176471, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j21xr"]
+bg_color = Color(0.737255, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w2t0d"]
+bg_color = Color(0.454902, 0, 0, 1)
+
+[node name="Titlebar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_roaft")
+window_name = "Window Tilte"
+corner_radius_top_left = null
+corner_radius_top_right = null
+corner_radius_bottom_right = null
+corner_radius_bottom_left = null
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_t6lfk")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 13
+text = "Title"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Minimize" type="Button" parent="MarginContainer/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "–"
+
+[node name="Maximize" type="Button" parent="MarginContainer/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "◻"
+
+[node name="Close" type="Button" parent="MarginContainer/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_j21xr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w2t0d")
+text = "×"
+icon_alignment = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/HBoxContainer2/Minimize" to="." method="_on_minimize_button_up"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/HBoxContainer2/Maximize" to="." method="_on_maximize_button_up"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/HBoxContainer2/Close" to="." method="_on_close_button_up"]
