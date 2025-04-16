@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 window/size/borderless=true
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/kanban_tasks/plugin.cfg")
+
 [gui]
 
 theme/custom="uid://0otub1cq8um6"

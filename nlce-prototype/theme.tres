@@ -72,4 +72,5 @@ CodeEdit/styles/normal = SubResource("StyleBoxFlat_mihib")
 GraphNode/styles/panel = SubResource("StyleBoxFlat_1rmny")
 GraphNode/styles/panel_selected = SubResource("StyleBoxFlat_yin2u")
 GraphNode/styles/titlebar = SubResource("StyleBoxFlat_05tig")
+GraphNodeTitleLabel/font_sizes/font_size = 13
 LineEdit/styles/normal = SubResource("StyleBoxFlat_110ce")

@@ -2,15 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cfusj0iryj8hk" path="res://Node/SingleCodeNode/single_code_node_script.gd" id="1_tvjsp"]
 
-[sub_resource type="CodeHighlighter" id="CodeHighlighter_fxmo3"]
-function_color = Color(0.703697, 0.0845017, 0.316677, 1)
-color_regions = {
-"\"": Color(0.755531, 0.708852, 0.343155, 1)
-}
+[sub_resource type="SyntaxHighlighter" id="SyntaxHighlighter_tvjsp"]
 
-[node name="SingleCodeNode" type="GraphNode"]
-custom_minimum_size = Vector2(250, 250)
-title = "title"
+[node name="SingleCodeNode" type="GraphNode" node_paths=PackedStringArray("code_edit")]
+offset_right = 207.0
+offset_bottom = 67.0
+grow_vertical = 0
+resizable = true
+title = "Title"
 slot/0/left_enabled = false
 slot/0/left_type = 0
 slot/0/left_color = Color(1, 1, 1, 1)
@@ -21,6 +20,9 @@ slot/0/right_color = Color(1, 1, 1, 1)
 slot/0/right_icon = null
 slot/0/draw_stylebox = true
 script = ExtResource("1_tvjsp")
+node_index = null
+node_content = null
+code_edit = NodePath("MarginContainer/CodeEdit")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -28,27 +30,29 @@ size_flags_vertical = 3
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_bottom = 10
 
 [node name="CodeEdit" type="CodeEdit" parent="MarginContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+mouse_force_pass_scroll_events = false
 theme_override_font_sizes/font_size = 12
-text = "def print_to_screen():
-	var a = \"hello world !\"
-	print(a)
-	print('This print is now complete')
-	return a"
+text = "kkkkkkk
+kkkkkkkkkk
+kkkk"
 placeholder_text = "Code"
 indent_wrapped_lines = true
 scroll_smooth = true
-minimap_draw = true
+scroll_fit_content_height = true
+scroll_fit_content_width = true
 caret_blink = true
-syntax_highlighter = SubResource("CodeHighlighter_fxmo3")
+syntax_highlighter = SubResource("SyntaxHighlighter_tvjsp")
 highlight_all_occurrences = true
 highlight_current_line = true
 draw_tabs = true
 gutters_draw_line_numbers = true
+indent_use_spaces = true
 indent_automatic = true
 auto_brace_completion_enabled = true
 auto_brace_completion_highlight_matching = true
+
+[connection signal="resize_request" from="." to="." method="_on_resize_request"]

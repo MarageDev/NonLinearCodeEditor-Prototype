@@ -46,10 +46,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t6lfk")
 window_name = "Window Tilte"
-corner_radius_top_left = null
-corner_radius_top_right = null
-corner_radius_bottom_right = null
-corner_radius_bottom_left = null
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -79,7 +75,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
-text = "Title"
+text = "Window Tilte"
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -100,6 +96,7 @@ text = "Search"
 expand_icon = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 theme_override_constants/separation = 0
 
