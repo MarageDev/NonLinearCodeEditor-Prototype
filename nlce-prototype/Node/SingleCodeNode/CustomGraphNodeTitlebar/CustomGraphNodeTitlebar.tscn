@@ -6,7 +6,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_crxji"]
 
 [node name="CustomGraphNodeTitlebar" type="Panel"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 20)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -33,3 +33,10 @@ expand_mode = 3
 [node name="Label" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 text = "blabablabla"
+
+[node name="Label_number" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 0.392157)
+text = "blabablabla"
+horizontal_alignment = 2

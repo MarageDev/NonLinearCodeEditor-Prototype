@@ -40,14 +40,15 @@
 			"tasks": [
 				"7684e371-64fa-4da6-8c58-b4a9ccd4862b",
 				"eaac8da3-e63e-49a2-81a2-e88b2cdaf900",
-				"3c393d79-5c4f-4516-b8b5-9739534b4be1",
-				"b13d31f3-6e09-46b5-a50a-f5acfd6490ce"
+				"3c393d79-5c4f-4516-b8b5-9739534b4be1"
 			]
 		},
 		{
 			"uuid": "af29928f-1463-4232-afa9-e25946300989",
 			"title": "Done",
-			"tasks": []
+			"tasks": [
+				"b13d31f3-6e09-46b5-a50a-f5acfd6490ce"
+			]
 		},
 		{
 			"uuid": "9077b9a0-ae8d-48dd-a9f7-720408da10b5",

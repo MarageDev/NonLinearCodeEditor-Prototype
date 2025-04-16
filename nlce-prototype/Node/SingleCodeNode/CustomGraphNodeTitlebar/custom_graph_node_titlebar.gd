@@ -7,6 +7,7 @@ const DOUBLE_CLICK_TIME = 0.3
 var last_click_time = 0.0
 
 @onready var label: Label = $HBoxContainer/Label
+@onready var label_number: Label = $HBoxContainer/Label_number
 
 func _gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:

@@ -1,9 +1,10 @@
 extends GraphNode
 class_name GraphCodeNode
-@export var node_index:int = 0
-@export var node_title:String = "Title"
+
 @export var node_content:String = ""
 @export var code_edit:CodeEdit
+
+var node_index:int = 0
 
 var custom_title_bar:CustomGraphNodeTitlebar
 
@@ -43,12 +44,15 @@ func setup_custom_titlebar(graph_node:GraphNode):
 	custom_titlebar_node.double_clicked.connect(_on_titlebar_double_clicked)
 	custom_title_bar = custom_titlebar_node
 
+	custom_titlebar_node.label_number.text = str(node_index)
 func _on_titlebar_double_clicked(pos:Vector2):
 	var margin:float = 5.
 	var rename:Control = preload("res://Node/SingleCodeNode/RenameNode/rename_node.tscn").instantiate()
 	var parent := get_parent()
 	var global_pos = get_global_position()
 	rename.position = global_pos + Vector2(0.,-1.)*(rename.size.y+margin)
+	rename.followed_node = self
+	rename.following_offset = Vector2(0.,-1.)*(rename.size.y+margin)
 	parent.add_child(rename)
 	rename.line_edit.grab_focus()
 	rename.text_submitted.connect(_node_title_edit)

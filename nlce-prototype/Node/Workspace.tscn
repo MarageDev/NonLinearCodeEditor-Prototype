@@ -22,6 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 grid_pattern = 1
 snapping_enabled = false
+minimap_size = Vector2(120, 80)
 show_menu = false
 show_zoom_buttons = false
 show_minimap_button = false

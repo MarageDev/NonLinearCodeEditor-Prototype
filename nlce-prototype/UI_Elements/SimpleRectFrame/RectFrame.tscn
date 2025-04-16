@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://fwj01r07gxv0"]
+
+[ext_resource type="Script" uid="uid://mdjalhxwt2pe" path="res://UI_Elements/SimpleRectFrame/rect_frame.gd" id="1_3uosb"]
+
+[node name="RectFrame" type="GraphFrame"]
+script = ExtResource("1_3uosb")
+
+[connection signal="dragged" from="." to="." method="_on_dragged"]

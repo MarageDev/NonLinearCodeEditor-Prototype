@@ -9,7 +9,6 @@ func _ready() -> void:
 	for i in range(len(blocks)):
 		var newGraphCodeNode: GraphCodeNode =load("res://Node/SingleCodeNode/SingleCodeNode.tscn").instantiate()
 		newGraphCodeNode.node_index = i
-		newGraphCodeNode.node_title = "title"
 		newGraphCodeNode.node_content = blocks[i]
 		graph_edit.add_child(newGraphCodeNode)
 		newGraphCodeNode.position_offset = DisplayServer.window_get_size()/2. - newGraphCodeNode.size/2.
@@ -66,3 +65,24 @@ func SeparateCodeBlocksInFile(file_path: String, separators: Array) -> Array:
 
 	file.close()
 	return blocks
+
+
+func _input(event):
+	var framed_nodes: Array[GraphNode] = []
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+		# Gather selected nodes
+		framed_nodes.clear()
+		for child in graph_edit.get_children():
+			if child is GraphNode and child.selected:
+				framed_nodes.append(child)
+		frame_selected_nodes(framed_nodes)
+func frame_selected_nodes(framed_nodes):
+	var dynamic_frame:RectGraphFrame = null
+
+	if framed_nodes.size() == 0:
+		return
+
+	dynamic_frame = preload("res://UI_Elements/SimpleRectFrame/RectFrame.tscn").instantiate()
+	dynamic_frame.title = "Group " + str(randi_range(0, 999))
+	dynamic_frame.set_framed_nodes(framed_nodes)
+	graph_edit.add_child(dynamic_frame)
