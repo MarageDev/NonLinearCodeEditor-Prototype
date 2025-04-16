@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=11 format=3 uid="uid://0otub1cq8um6"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://0otub1cq8um6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjfk0"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -35,7 +35,7 @@ bg_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
 border_width_left = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.141176, 0.141176, 0.141176, 1)
+border_color = Color(0.298039, 0.447059, 0.533333, 1)
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 anti_aliasing = false
@@ -50,6 +50,37 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 anti_aliasing = false
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ttqs8"]
+bg_color = Color(0.189514, 0.332662, 0.451223, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(0.298322, 0.445266, 0.533569, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wdt2l"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_110ce"]
 bg_color = Color(0.141176, 0.141176, 0.141176, 1)
 border_width_left = 1
@@ -61,6 +92,8 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 0.27451)
+shadow_size = 15
 
 [resource]
 Button/styles/focus = SubResource("StyleBoxFlat_cjfk0")
@@ -72,5 +105,8 @@ CodeEdit/styles/normal = SubResource("StyleBoxFlat_mihib")
 GraphNode/styles/panel = SubResource("StyleBoxFlat_1rmny")
 GraphNode/styles/panel_selected = SubResource("StyleBoxFlat_yin2u")
 GraphNode/styles/titlebar = SubResource("StyleBoxFlat_05tig")
+GraphNode/styles/titlebar_selected = SubResource("StyleBoxFlat_ttqs8")
 GraphNodeTitleLabel/font_sizes/font_size = 13
+LineEdit/font_sizes/font_size = 13
+LineEdit/styles/focus = SubResource("StyleBoxFlat_wdt2l")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_110ce")

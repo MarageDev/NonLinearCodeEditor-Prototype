@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qagv2")
 file_path = "res://CodeExamples/sum2.py"
-separators = Array[String](["def"])
+separators = ["def"]
 
 [node name="GraphEdit" type="GraphEdit" parent="."]
 layout_mode = 1

@@ -47,7 +47,3 @@ layout_mode = 2
 theme = ExtResource("2_ltid8")
 window_name = "NLCE Prototype"
 buttons_area_minimum_size = 136.0
-corner_radius_top_left = 0
-corner_radius_top_right = 0
-corner_radius_bottom_right = 0
-corner_radius_bottom_left = 0

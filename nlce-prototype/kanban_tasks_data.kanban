@@ -4,21 +4,44 @@
 			"uuid": "231c852f-8d4d-47aa-a5ef-5447f1237046",
 			"title": "Task",
 			"color": "70bafa"
+		},
+		{
+			"uuid": "7b3ba7e7-14fa-4236-9c3f-83fd03c8100a",
+			"title": "Preferences",
+			"color": "25ccd0"
+		},
+		{
+			"uuid": "c110da11-efcd-4c8f-8aef-b1e5a45da7c3",
+			"title": "Visibility",
+			"color": "95379a"
+		},
+		{
+			"uuid": "a452036f-b324-4721-8539-d7aa594653b8",
+			"title": "Main Logic",
+			"color": "c4265b"
+		},
+		{
+			"uuid": "ee13d63a-ca34-4b9e-b514-a7288556b155",
+			"title": "Smaller Logic",
+			"color": "70f02e"
 		}
 	],
 	"stages": [
 		{
 			"uuid": "45d503d9-03b1-4adf-a7af-bda53a53cf2a",
 			"title": "Ideas",
-			"tasks": []
+			"tasks": [
+				"21a13afe-93d0-470e-b259-8899da6dff70"
+			]
 		},
 		{
 			"uuid": "e504243e-ef31-426d-b374-a3c9a9f19eee",
 			"title": "To Do",
 			"tasks": [
-				"f06f31d0-33d0-4de0-ad77-247fb5057cea",
 				"7684e371-64fa-4da6-8c58-b4a9ccd4862b",
-				"21a13afe-93d0-470e-b259-8899da6dff70"
+				"eaac8da3-e63e-49a2-81a2-e88b2cdaf900",
+				"3c393d79-5c4f-4516-b8b5-9739534b4be1",
+				"b13d31f3-6e09-46b5-a50a-f5acfd6490ce"
 			]
 		},
 		{
@@ -29,7 +52,9 @@
 		{
 			"uuid": "9077b9a0-ae8d-48dd-a9f7-720408da10b5",
 			"title": "To Fix",
-			"tasks": []
+			"tasks": [
+				"f06f31d0-33d0-4de0-ad77-247fb5057cea"
+			]
 		}
 	],
 	"tasks": [
@@ -37,14 +62,14 @@
 			"uuid": "f06f31d0-33d0-4de0-ad77-247fb5057cea",
 			"title": "Separate different parts of a program",
 			"description": "",
-			"category": "231c852f-8d4d-47aa-a5ef-5447f1237046",
+			"category": "a452036f-b324-4721-8539-d7aa594653b8",
 			"steps": []
 		},
 		{
 			"uuid": "7684e371-64fa-4da6-8c58-b4a9ccd4862b",
 			"title": "Syntax Modularity",
 			"description": "Export and import own syntax highlighters\n",
-			"category": "231c852f-8d4d-47aa-a5ef-5447f1237046",
+			"category": "c110da11-efcd-4c8f-8aef-b1e5a45da7c3",
 			"steps": []
 		},
 		{
@@ -52,6 +77,27 @@
 			"title": "Possibility to group graph nodes like in blender",
 			"description": "",
 			"category": "231c852f-8d4d-47aa-a5ef-5447f1237046",
+			"steps": []
+		},
+		{
+			"uuid": "eaac8da3-e63e-49a2-81a2-e88b2cdaf900",
+			"title": "VSync option exposed to user for input lag",
+			"description": "",
+			"category": "7b3ba7e7-14fa-4236-9c3f-83fd03c8100a",
+			"steps": []
+		},
+		{
+			"uuid": "3c393d79-5c4f-4516-b8b5-9739534b4be1",
+			"title": "Expose Max FPS",
+			"description": "",
+			"category": "7b3ba7e7-14fa-4236-9c3f-83fd03c8100a",
+			"steps": []
+		},
+		{
+			"uuid": "b13d31f3-6e09-46b5-a50a-f5acfd6490ce",
+			"title": "When node title is double clicked, edit the title with a line edit node popping at the top of the node",
+			"description": "",
+			"category": "ee13d63a-ca34-4b9e-b514-a7288556b155",
 			"steps": []
 		}
 	],

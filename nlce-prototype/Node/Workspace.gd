@@ -12,8 +12,7 @@ func _ready() -> void:
 		newGraphCodeNode.node_title = "title"
 		newGraphCodeNode.node_content = blocks[i]
 		graph_edit.add_child(newGraphCodeNode)
-
-
+		newGraphCodeNode.position_offset = DisplayServer.window_get_size()/2. - newGraphCodeNode.size/2.
 func SeparateCodeBlocksInFile(file_path: String, separators: Array) -> Array:
 	var file = FileAccess.open(file_path, FileAccess.READ)
 	if not file:

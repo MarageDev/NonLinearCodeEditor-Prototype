@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsh3gmbxrbjeo"]
+
+[ext_resource type="Texture2D" uid="uid://ivk7nvlttkcb" path="res://icon.svg" id="1_crxji"]
+[ext_resource type="Script" uid="uid://tnm4x4ydwnqh" path="res://Node/SingleCodeNode/CustomGraphNodeTitlebar/custom_graph_node_titlebar.gd" id="1_vxf5m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_crxji"]
+
+[node name="CustomGraphNodeTitlebar" type="Panel"]
+custom_minimum_size = Vector2(0, 50)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_crxji")
+script = ExtResource("1_vxf5m")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_crxji")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "blabablabla"
