@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="NLCE-Prototype"
-run/main_scene="uid://dvnrm1ejr1ag6"
+run/main_scene="uid://cv4ij82ojmnv"
 config/features=PackedStringArray("4.4", "Mobile")
 run/max_fps=60
 config/icon="res://icon.svg"

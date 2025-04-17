@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=14 format=3 uid="uid://0otub1cq8um6"]
+[gd_resource type="Theme" load_steps=17 format=3 uid="uid://7cc3vnbndv3v"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjfk0"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -20,7 +20,47 @@ bg_color = Color(1, 1, 1, 0.196078)
 bg_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
 border_color = Color(0.352941, 0.352941, 0.352941, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mworl"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6cw85"]
+bg_color = Color(0, 0, 0, 0.470588)
+border_width_left = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_offset = Vector2(0, 5)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_howt0"]
+bg_color = Color(0, 0, 0, 0.470588)
+border_width_left = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.352941, 0.352941, 0.352941, 1)
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_504p6"]
+bg_color = Color(0, 0, 0, 0.470588)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n3ikw"]
+bg_color = Color(0, 0, 0, 0.470588)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(0.352941, 0.352941, 0.352941, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rmny"]
 bg_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
@@ -106,9 +146,11 @@ CodeEdit/styles/focus = SubResource("StyleBoxEmpty_wvktn")
 CodeEdit/styles/normal = SubResource("StyleBoxFlat_mihib")
 GraphEdit/colors/grid_major = Color(1, 1, 1, 0.0588235)
 GraphEdit/colors/grid_minor = Color(1, 1, 1, 0.027451)
-GraphFrame/colors/resizer_color = Color(0.88, 0, 0, 1)
+GraphFrame/styles/panel = SubResource("StyleBoxFlat_6cw85")
+GraphFrame/styles/panel_selected = SubResource("StyleBoxFlat_howt0")
+GraphFrame/styles/titlebar = SubResource("StyleBoxFlat_504p6")
+GraphFrame/styles/titlebar_selected = SubResource("StyleBoxFlat_n3ikw")
 GraphFrameTitleLabel/font_sizes/font_size = 14
-GraphFrameTitleLabel/styles/normal = SubResource("StyleBoxEmpty_mworl")
 GraphNode/styles/panel = SubResource("StyleBoxFlat_1rmny")
 GraphNode/styles/panel_selected = SubResource("StyleBoxFlat_yin2u")
 GraphNode/styles/titlebar = SubResource("StyleBoxFlat_05tig")

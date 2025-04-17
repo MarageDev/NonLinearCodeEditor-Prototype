@@ -12,6 +12,7 @@ func _ready():
 	connect("position_offset_changed", Callable(self, "_on_frame_moved"))
 	autoshrink_enabled = true
 	autoshrink_margin = 40
+	_update_frame_transform()
 func set_framed_nodes(nodes: Array[GraphNode]):
 	framed_graph_nodes = nodes
 	for node in nodes:
@@ -54,3 +55,30 @@ func _on_frame_moved():
 
 func _on_node_moved():
 	_update_frame_transform()
+
+const DOUBLE_CLICK_TIME = 0.3
+var last_click_time = 0.0
+
+func _gui_input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		var current_time = Time.get_ticks_msec() / 1000.0
+		if current_time - last_click_time <= DOUBLE_CLICK_TIME:
+			_on_double_click(event)
+			last_click_time = 0.0 # Reset to avoid triple clicks
+		else:
+			last_click_time = current_time
+
+func _on_double_click(event):
+	var margin:float = 15.
+	var rename:Control = preload("res://Node/SingleCodeNode/RenameNode/rename_node.tscn").instantiate()
+	var global_pos = get_global_position()
+	var parent = get_parent()
+	rename.position = global_pos + Vector2(0.,-1.)*(rename.size.y+margin)
+	rename.followed_node = self
+	rename.following_offset = Vector2(0.,-1.)*(rename.size.y+margin)
+	parent.add_child(rename)
+	rename.line_edit.grab_focus()
+	rename.text_submitted.connect(_frame_title_edit)
+
+func _frame_title_edit(new_title):
+	title = new_title

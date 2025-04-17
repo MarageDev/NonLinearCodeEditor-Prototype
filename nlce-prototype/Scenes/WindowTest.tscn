@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cv4ij82ojmnv"]
+[gd_scene load_steps=5 format=3 uid="uid://cv4ij82ojmnv"]
 
+[ext_resource type="PackedScene" uid="uid://dvnrm1ejr1ag6" path="res://Scenes/LogicTest.tscn" id="1_ltid8"]
 [ext_resource type="PackedScene" uid="uid://dodag2ea1vs35" path="res://UI_Elements/titlebar/titlebar.tscn" id="1_mrp63"]
 [ext_resource type="Theme" uid="uid://0otub1cq8um6" path="res://theme.tres" id="2_ltid8"]
 
@@ -29,6 +30,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_6pedr")
 
+[node name="LogicTest" parent="." instance=ExtResource("1_ltid8")]
+layout_mode = 1
+offset_top = 37.0
+
 [node name="MarginTitlebar" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(0, 36)
 layout_mode = 1
@@ -47,3 +52,6 @@ layout_mode = 2
 theme = ExtResource("2_ltid8")
 window_name = "NLCE Prototype"
 buttons_area_minimum_size = 136.0
+
+[editable path="LogicTest"]
+[editable path="LogicTest/Code"]
