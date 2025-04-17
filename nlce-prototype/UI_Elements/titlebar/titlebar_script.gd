@@ -45,3 +45,8 @@ func _on_maximize_button_up() -> void:
 
 func _on_minimize_button_up() -> void:
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MINIMIZED)
+
+@onready var menu_button: MenuButton = $MarginContainer/HBoxContainer/HBoxContainer/Menu/MenuButton
+func _on_menu_button_up() -> void:
+	menu_button.show()
+	menu_button.button_down

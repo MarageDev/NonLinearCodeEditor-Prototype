@@ -4,6 +4,9 @@ class_name GraphCodeNode
 @export var node_content:String = ""
 @export var code_edit:CodeEdit
 
+var customColor:bool = false
+@export var customNodeColor:Color = Color.WHITE
+
 var node_index:int = 0
 
 var custom_title_bar:CustomGraphNodeTitlebar
@@ -14,7 +17,7 @@ func _ready() -> void:
 	if node_content and code_edit : code_edit.text = node_content
 
 	setup_custom_titlebar(self)
-
+	set_graphnode_color(Color(randf(),randf(),randf()))
 func _on_resize_request(new_size: Vector2) -> void:
 	code_edit.scroll_fit_content_height = false
 	code_edit.scroll_fit_content_width = false
@@ -59,3 +62,24 @@ func _on_titlebar_double_clicked(pos:Vector2):
 
 func _node_title_edit(new_text:String):
 	if new_text != null : custom_title_bar.label.text = new_text
+
+func set_graphnode_color(color: Color):
+	var stylebox_panel:StyleBoxFlat = get_theme_stylebox("panel").duplicate()
+	stylebox_panel.bg_color = Color.from_hsv(color.h,color.s,0.09)
+	stylebox_panel.border_color = Color.from_hsv(color.h,color.s,0.14)
+	add_theme_stylebox_override("panel", stylebox_panel)
+
+	var stylebox_panel_selected:StyleBoxFlat = get_theme_stylebox("panel_selected").duplicate()
+	stylebox_panel_selected.bg_color = Color.from_hsv(color.h,color.s,0.09)
+	stylebox_panel_selected.border_color = Color.from_hsv(color.h,.44,.53)
+	add_theme_stylebox_override("panel_selected", stylebox_panel_selected)
+
+	var stylebox_titlebar:StyleBoxFlat = get_theme_stylebox("titlebar").duplicate()
+	stylebox_titlebar.bg_color = Color.from_hsv(color.h,color.s,0.16)
+	stylebox_titlebar.border_color = Color.from_hsv(color.h,color.s,0.14)
+	add_theme_stylebox_override("titlebar", stylebox_titlebar)
+
+	var stylebox_titlebar_selected:StyleBoxFlat = get_theme_stylebox("titlebar_selected").duplicate()
+	stylebox_titlebar_selected.bg_color = Color.from_hsv(color.h,.58,0.45)
+	stylebox_titlebar_selected.border_color = Color.from_hsv(color.h,.44,.53)
+	add_theme_stylebox_override("titlebar_selected", stylebox_titlebar_selected)

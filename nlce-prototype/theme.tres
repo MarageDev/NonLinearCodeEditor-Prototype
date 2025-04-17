@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=14 format=3 uid="uid://0otub1cq8um6"]
+[gd_resource type="Theme" load_steps=25 format=3 uid="uid://0otub1cq8um6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjfk0"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -19,6 +19,31 @@ bg_color = Color(1, 1, 1, 0.196078)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mihib"]
 bg_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
 border_color = Color(0.352941, 0.352941, 0.352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6cw85"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_504p6"]
+bg_color = Color(0.1, 0.55, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_howt0"]
+bg_color = Color(0.1, 0.55, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n3ikw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n3ikw"]
+bg_color = Color(0.1, 0.55, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mworl"]
 
@@ -97,6 +122,40 @@ corner_radius_bottom_left = 5
 shadow_color = Color(0, 0, 0, 0.27451)
 shadow_size = 15
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mworl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ndmpe"]
+bg_color = Color(1, 1, 1, 0.0784314)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ceoj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6q1gq"]
+bg_color = Color(1, 1, 1, 0.196078)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3n26i"]
+bg_color = Color(0.1, 0.55, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i1e0v"]
+bg_color = Color(0.121569, 0.121569, 0.121569, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.3, 0.3, 0.3, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 18
+
 [resource]
 Button/styles/focus = SubResource("StyleBoxFlat_cjfk0")
 Button/styles/hover = SubResource("StyleBoxFlat_e1x85")
@@ -104,6 +163,12 @@ Button/styles/normal = SubResource("StyleBoxFlat_wvktn")
 Button/styles/pressed = SubResource("StyleBoxFlat_vj6dk")
 CodeEdit/styles/focus = SubResource("StyleBoxEmpty_wvktn")
 CodeEdit/styles/normal = SubResource("StyleBoxFlat_mihib")
+CustomMenuButton/base_type = &"Button"
+CustomMenuButton/styles/disabled = SubResource("StyleBoxFlat_6cw85")
+CustomMenuButton/styles/focus = SubResource("StyleBoxFlat_504p6")
+CustomMenuButton/styles/hover = SubResource("StyleBoxFlat_howt0")
+CustomMenuButton/styles/normal = SubResource("StyleBoxEmpty_n3ikw")
+CustomMenuButton/styles/pressed = SubResource("StyleBoxFlat_n3ikw")
 GraphEdit/colors/grid_major = Color(1, 1, 1, 0.0588235)
 GraphEdit/colors/grid_minor = Color(1, 1, 1, 0.027451)
 GraphFrame/colors/resizer_color = Color(0.88, 0, 0, 1)
@@ -117,3 +182,15 @@ GraphNodeTitleLabel/font_sizes/font_size = 13
 LineEdit/font_sizes/font_size = 13
 LineEdit/styles/focus = SubResource("StyleBoxFlat_wdt2l")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_110ce")
+MenuButton/font_sizes/font_size = 13
+MenuButton/styles/focus = SubResource("StyleBoxFlat_mworl")
+MenuButton/styles/hover = SubResource("StyleBoxFlat_ndmpe")
+MenuButton/styles/normal = SubResource("StyleBoxFlat_0ceoj")
+MenuButton/styles/pressed = SubResource("StyleBoxFlat_6q1gq")
+PopupMenu/constants/h_separation = 6
+PopupMenu/constants/item_end_padding = 15
+PopupMenu/constants/item_start_padding = 15
+PopupMenu/constants/v_separation = 10
+PopupMenu/font_sizes/font_size = 13
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_3n26i")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_i1e0v")

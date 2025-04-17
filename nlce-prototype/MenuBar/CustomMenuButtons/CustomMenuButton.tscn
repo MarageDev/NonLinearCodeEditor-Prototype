@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8os88uhyx166"]
+
+[ext_resource type="Theme" uid="uid://0otub1cq8um6" path="res://theme.tres" id="1_h842e"]
+[ext_resource type="Script" uid="uid://d1tgfln7o56lm" path="res://MenuBar/CustomMenuButtons/custom_menu_button.gd" id="2_wxrbc"]
+
+[node name="CustomMenuButton" type="Button"]
+custom_minimum_size = Vector2(50, 25)
+offset_right = 265.0
+offset_bottom = 20.0
+theme = ExtResource("1_h842e")
+theme_type_variation = &"CustomMenuButton"
+script = ExtResource("2_wxrbc")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Button"
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0.45, 0.45, 0.45, 1)
+text = "Info"

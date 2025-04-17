@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dodag2ea1vs35"]
+[gd_scene load_steps=8 format=3 uid="uid://dodag2ea1vs35"]
 
 [ext_resource type="Script" uid="uid://6jcaxm0feey3" path="res://UI_Elements/titlebar/titlebar_script.gd" id="1_t6lfk"]
+[ext_resource type="Script" uid="uid://owdsqkfnqqt0" path="res://MenuBar/menu_bar.gd" id="2_j21xr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6lfk"]
 bg_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
@@ -46,6 +47,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t6lfk")
 window_name = "Window Tilte"
+buttons_area_minimum_size = 136.0
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -77,6 +79,18 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 13
 text = "Window Tilte"
 
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(45.33, 0)
+layout_mode = 2
+
+[node name="MenuButton" type="MenuButton" parent="MarginContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "≡"
+flat = false
+switch_on_hover = true
+script = ExtResource("2_j21xr")
+
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
@@ -96,7 +110,7 @@ text = "Search"
 expand_icon = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(20, 0)
+custom_minimum_size = Vector2(136, 0)
 layout_mode = 2
 theme_override_constants/separation = 0
 

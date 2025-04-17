@@ -68,6 +68,12 @@ func _gui_input(event):
 		else:
 			last_click_time = current_time
 
+
+func _unhandled_input(event):
+	if event is InputEventKey and event.pressed and event.keycode == KEY_BACKSPACE:
+		_remove_frame()
+
+
 func _on_double_click(event):
 	var margin:float = 25.
 	var rename:Control = preload("res://Node/SingleCodeNode/RenameNode/rename_node.tscn").instantiate()
@@ -83,3 +89,6 @@ func _on_double_click(event):
 
 func _frame_title_edit(new_title):
 	title = new_title
+
+func _remove_frame():
+	queue_free()
