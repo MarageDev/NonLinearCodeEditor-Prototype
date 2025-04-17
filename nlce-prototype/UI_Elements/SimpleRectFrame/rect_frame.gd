@@ -69,10 +69,11 @@ func _gui_input(event):
 			last_click_time = current_time
 
 func _on_double_click(event):
-	var margin:float = 15.
+	var margin:float = 25.
 	var rename:Control = preload("res://Node/SingleCodeNode/RenameNode/rename_node.tscn").instantiate()
 	var global_pos = get_global_position()
 	var parent = get_parent()
+
 	rename.position = global_pos + Vector2(0.,-1.)*(rename.size.y+margin)
 	rename.followed_node = self
 	rename.following_offset = Vector2(0.,-1.)*(rename.size.y+margin)

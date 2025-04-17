@@ -31,8 +31,19 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_6pedr")
 
 [node name="LogicTest" parent="." instance=ExtResource("1_ltid8")]
-layout_mode = 1
-offset_top = 37.0
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 1146.0
+offset_bottom = 664.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="GraphEdit" parent="LogicTest/Code" index="0"]
+scroll_offset = Vector2(-50, -50)
 
 [node name="MarginTitlebar" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(0, 36)

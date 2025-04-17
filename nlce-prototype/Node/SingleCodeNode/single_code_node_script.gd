@@ -46,7 +46,7 @@ func setup_custom_titlebar(graph_node:GraphNode):
 
 	custom_titlebar_node.label_number.text = str(node_index)
 func _on_titlebar_double_clicked(pos:Vector2):
-	var margin:float = 5.
+	var margin:float = 15.
 	var rename:Control = preload("res://Node/SingleCodeNode/RenameNode/rename_node.tscn").instantiate()
 	var parent := get_parent()
 	var global_pos = get_global_position()
