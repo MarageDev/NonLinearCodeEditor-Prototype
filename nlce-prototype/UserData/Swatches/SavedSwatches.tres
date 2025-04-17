@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="SaveColorSwatchesResource" load_steps=7 format=3 uid="uid://dwuhod05p80jp"]
+
+[ext_resource type="Script" uid="uid://8os4vxe58t26" path="res://UI_Elements/ColorWheel/SaveColorSwatchesResource.gd" id="1_pwyxs"]
+[ext_resource type="Script" uid="uid://bnn2qrbqhc36l" path="res://UI_Elements/ColorWheel/ColorSwatcheResource.gd" id="2_wwbbt"]
+
+[sub_resource type="Resource" id="Resource_pwyxs"]
+script = ExtResource("2_wwbbt")
+color = Color(0, 0.558054, 0.513743, 1)
+comment = ""
+metadata/_custom_type_script = "uid://bnn2qrbqhc36l"
+
+[sub_resource type="Resource" id="Resource_wwbbt"]
+script = ExtResource("2_wwbbt")
+color = Color(0.0701644, 0.526868, 1, 1)
+comment = ""
+metadata/_custom_type_script = "uid://bnn2qrbqhc36l"
+
+[sub_resource type="Resource" id="Resource_lkq85"]
+script = ExtResource("2_wwbbt")
+color = Color(0.810226, 0.294969, 0.198988, 1)
+comment = ""
+
+[sub_resource type="Resource" id="Resource_wmvfa"]
+script = ExtResource("2_wwbbt")
+color = Color(0.580827, 0.482373, 1.92523e-07, 1)
+comment = ""
+
+[resource]
+script = ExtResource("1_pwyxs")
+swatches = Array[ExtResource("2_wwbbt")]([SubResource("Resource_pwyxs"), SubResource("Resource_wwbbt"), SubResource("Resource_lkq85"), SubResource("Resource_wmvfa")])
+metadata/_custom_type_script = "uid://8os4vxe58t26"

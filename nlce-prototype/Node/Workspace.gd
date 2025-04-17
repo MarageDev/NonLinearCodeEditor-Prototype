@@ -90,16 +90,31 @@ func frame_selected_nodes(framed_nodes):
 
 func _unhandled_input(event):
 	if event is InputEventKey and event.pressed and event.keycode == KEY_C:
-		_handle_color_change()
+		create_color_wheel()
 
-func _handle_color_change():
+func _handle_color_change(new_color:Color):
 	var selected_nodes:Array = []
 	for i in graph_edit.get_children():
 			if i is GraphCodeNode or i is RectGraphFrame :
 				if i.selected:
 					selected_nodes.append(i)
+	for i in selected_nodes:
+		if i is GraphCodeNode:
+			i.set_graphnode_color(new_color)
+		elif i is RectGraphFrame:
+			i.set_frame_color(new_color)
+		else: continue
 
+
+
+
+var currentColorWheel:ColorWheel
+
+func create_color_wheel():
+	if currentColorWheel : currentColorWheel.queue_free()
 	var newColorWheel:ColorWheel = preload("res://UI_Elements/ColorWheel/ColorWheel.tscn").instantiate()
-
 	newColorWheel.global_position = get_global_mouse_position() + Vector2(-1.,-1.)*newColorWheel.size/2.
 	add_child(newColorWheel)
+	newColorWheel.color_changed.connect(_handle_color_change)
+	currentColorWheel = newColorWheel
+	#newColorWheel.color_wheel_killed.connect(_on_color_wheel_closed)
