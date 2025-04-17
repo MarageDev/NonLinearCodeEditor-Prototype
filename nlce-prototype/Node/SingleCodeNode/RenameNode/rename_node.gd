@@ -4,6 +4,7 @@ extends Control
 signal text_submitted(new_text)
 var followed_node:Control
 var following_offset:Vector2
+
 func _process(delta: float) -> void:
 	position = followed_node.global_position + following_offset
 

@@ -92,3 +92,7 @@ func _frame_title_edit(new_title):
 
 func _remove_frame():
 	queue_free()
+
+func set_frame_color(color:Color):
+	tint_color_enabled = true
+	tint_color = Color(color.r,color.g,color.b,120./255.)

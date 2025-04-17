@@ -31,6 +31,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_type_variation = &"LineEditShadow"
 placeholder_text = "New node title"
 
 [connection signal="focus_exited" from="Panel/LineEdit" to="." method="_on_line_edit_focus_exited"]

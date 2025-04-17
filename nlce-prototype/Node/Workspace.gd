@@ -86,3 +86,20 @@ func frame_selected_nodes(framed_nodes):
 	dynamic_frame.title = "Group " + str(randi_range(0, 999))
 	dynamic_frame.set_framed_nodes(framed_nodes)
 	graph_edit.add_child(dynamic_frame)
+
+
+func _unhandled_input(event):
+	if event is InputEventKey and event.pressed and event.keycode == KEY_C:
+		_handle_color_change()
+
+func _handle_color_change():
+	var selected_nodes:Array = []
+	for i in graph_edit.get_children():
+			if i is GraphCodeNode or i is RectGraphFrame :
+				if i.selected:
+					selected_nodes.append(i)
+
+	var newColorWheel:ColorWheel = preload("res://UI_Elements/ColorWheel/ColorWheel.tscn").instantiate()
+
+	newColorWheel.global_position = get_global_mouse_position() + Vector2(-1.,-1.)*newColorWheel.size/2.
+	add_child(newColorWheel)

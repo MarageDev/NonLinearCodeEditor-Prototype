@@ -17,7 +17,7 @@ func _ready() -> void:
 	if node_content and code_edit : code_edit.text = node_content
 
 	setup_custom_titlebar(self)
-	set_graphnode_color(Color(randf(),randf(),randf()))
+	#set_graphnode_color(Color(randf(),randf(),randf()))
 func _on_resize_request(new_size: Vector2) -> void:
 	code_edit.scroll_fit_content_height = false
 	code_edit.scroll_fit_content_width = false

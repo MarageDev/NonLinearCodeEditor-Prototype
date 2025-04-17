@@ -117,16 +117,19 @@ theme_override_constants/separation = 0
 [node name="Minimize" type="Button" parent="MarginContainer/HBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"StraightCornerButton"
 text = "–"
 
 [node name="Maximize" type="Button" parent="MarginContainer/HBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"StraightCornerButton"
 text = "◻"
 
 [node name="Close" type="Button" parent="MarginContainer/HBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"StraightCornerButton"
 theme_override_styles/hover = SubResource("StyleBoxFlat_j21xr")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_w2t0d")
 text = "×"

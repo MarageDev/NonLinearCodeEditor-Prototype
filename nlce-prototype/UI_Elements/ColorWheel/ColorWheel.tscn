@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvehx0fqmntqy"]
+
+[ext_resource type="Script" uid="uid://d8b28bsgutxf" path="res://UI_Elements/ColorWheel/color_wheel.gd" id="1_mkynd"]
+[ext_resource type="PackedScene" uid="uid://dxnbecqfqiq0t" path="res://color_wheel.tscn" id="2_bqsq1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vr0k6"]
+bg_color = Color(0.141176, 0.141176, 0.141176, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.262745, 0.262745, 0.262745, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 0.392157)
+shadow_size = 15
+shadow_offset = Vector2(0, 5)
+
+[node name="ColorWheelNode" type="Control"]
+custom_minimum_size = Vector2(205, 300)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 205.0
+offset_bottom = 265.0
+script = ExtResource("1_mkynd")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vr0k6")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="ColorWheel" parent="Panel/MarginContainer/VBoxContainer" instance=ExtResource("2_bqsq1")]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+last_wrap_alignment = 1
+
+[node name="Button" type="Button" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/HFlowContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "+"
+
+[node name="Button" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"CustomMenuButton"
+text = "Use Color"
