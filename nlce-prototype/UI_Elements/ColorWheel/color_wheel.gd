@@ -4,7 +4,7 @@ class_name ColorWheel
 @onready var h_flow_container: HFlowContainer = $Panel/MarginContainer/VBoxContainer/ScrollContainer/HFlowContainer
 
 signal color_changed(new_color)
-signal color_wheel_killed()
+
 func _ready() -> void:
 	top_level = true
 
@@ -22,7 +22,6 @@ func _ready() -> void:
 
 func _on_color_picker_color_changed(color: Color) -> void:
 	emit_signal("color_changed",color)
-	emit_signal("color_wheel_killed")
 	queue_free()
 
 func _on_button_pressed() -> void:
@@ -49,18 +48,17 @@ func _on_button_pressed() -> void:
 
 func _on_color_swatches_chosen(color: Color) -> void:
 	emit_signal("color_changed", color)
-	emit_signal("color_wheel_killed")
+
 	queue_free()
 
 
 func _on_use_color_button_pressed() -> void:
 	emit_signal("color_changed", color_picker.color)
-	emit_signal("color_wheel_killed")
+
 	queue_free()
 
 func _input(event: InputEvent) -> void:
 	if visible and event is InputEventMouseButton and event.pressed:
 		if not get_global_rect().has_point(event.global_position):
-			emit_signal("color_wheel_killed")
 			queue_free()
-			get_viewport().set_input_as_handled()
+			#get_viewport().set_input_as_handled()

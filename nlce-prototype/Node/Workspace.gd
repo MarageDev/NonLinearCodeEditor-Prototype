@@ -117,4 +117,3 @@ func create_color_wheel():
 	add_child(newColorWheel)
 	newColorWheel.color_changed.connect(_handle_color_change)
 	currentColorWheel = newColorWheel
-	#newColorWheel.color_wheel_killed.connect(_on_color_wheel_closed)
