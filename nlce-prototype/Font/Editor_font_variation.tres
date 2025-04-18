@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://djbpxebaaagj6"]
+
+[sub_resource type="SystemFont" id="SystemFont_5glt2"]
+font_names = PackedStringArray("Arial")
+
+[resource]
+base_font = SubResource("SystemFont_5glt2")

@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://tw0cplk3x0sr"]
+
+[sub_resource type="SystemFont" id="SystemFont_xcacl"]
+font_names = PackedStringArray("Consolas")
+
+[resource]
+base_font = SubResource("SystemFont_xcacl")
