@@ -33,9 +33,12 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 mouse_force_pass_scroll_events = false
 theme_override_font_sizes/font_size = 12
-text = "kkkkkkk
-kkkkkkkkkk
-kkkk"
+text = "def sum(n):
+	s = 0
+	for i in range(0, n+1):
+		s += 1
+	#sti
+	return s"
 placeholder_text = "Code"
 indent_wrapped_lines = true
 scroll_smooth = true

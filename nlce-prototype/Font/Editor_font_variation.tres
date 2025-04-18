@@ -2,6 +2,7 @@
 
 [sub_resource type="SystemFont" id="SystemFont_5glt2"]
 font_names = PackedStringArray("Arial")
+multichannel_signed_distance_field = true
 
 [resource]
 base_font = SubResource("SystemFont_5glt2")

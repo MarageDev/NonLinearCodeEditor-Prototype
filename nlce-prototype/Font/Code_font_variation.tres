@@ -2,6 +2,7 @@
 
 [sub_resource type="SystemFont" id="SystemFont_xcacl"]
 font_names = PackedStringArray("Consolas")
+multichannel_signed_distance_field = true
 
 [resource]
 base_font = SubResource("SystemFont_xcacl")
