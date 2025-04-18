@@ -31,7 +31,7 @@
 			"uuid": "45d503d9-03b1-4adf-a7af-bda53a53cf2a",
 			"title": "Ideas",
 			"tasks": [
-				"21a13afe-93d0-470e-b259-8899da6dff70"
+				"90cbafef-3696-461d-9ca5-cfdaa3cfb3ea"
 			]
 		},
 		{
@@ -39,15 +39,18 @@
 			"title": "To Do",
 			"tasks": [
 				"7684e371-64fa-4da6-8c58-b4a9ccd4862b",
-				"eaac8da3-e63e-49a2-81a2-e88b2cdaf900",
-				"3c393d79-5c4f-4516-b8b5-9739534b4be1"
+				"b5e8a340-e156-4440-9948-40f55e99b7e8",
+				"f7740d87-ad4a-47f1-8658-14a7b1f8c562"
 			]
 		},
 		{
 			"uuid": "af29928f-1463-4232-afa9-e25946300989",
 			"title": "Done",
 			"tasks": [
-				"b13d31f3-6e09-46b5-a50a-f5acfd6490ce"
+				"b13d31f3-6e09-46b5-a50a-f5acfd6490ce",
+				"21a13afe-93d0-470e-b259-8899da6dff70",
+				"3c393d79-5c4f-4516-b8b5-9739534b4be1",
+				"eaac8da3-e63e-49a2-81a2-e88b2cdaf900"
 			]
 		},
 		{
@@ -99,6 +102,27 @@
 			"title": "When node title is double clicked, edit the title with a line edit node popping at the top of the node",
 			"description": "",
 			"category": "ee13d63a-ca34-4b9e-b514-a7288556b155",
+			"steps": []
+		},
+		{
+			"uuid": "b5e8a340-e156-4440-9948-40f55e99b7e8",
+			"title": "Manual splitting",
+			"description": "If automatic file splitting doesn't work, give the user the possibility to manually split the file",
+			"category": "a452036f-b324-4721-8539-d7aa594653b8",
+			"steps": []
+		},
+		{
+			"uuid": "f7740d87-ad4a-47f1-8658-14a7b1f8c562",
+			"title": "Nested splitting",
+			"description": "For class stuff or nested splitted code, maybe do it so they're linked visually to the parent node ? ( migth be hard to do automatically so it'd probably better to let the user do it )",
+			"category": "a452036f-b324-4721-8539-d7aa594653b8",
+			"steps": []
+		},
+		{
+			"uuid": "90cbafef-3696-461d-9ca5-cfdaa3cfb3ea",
+			"title": "Script timeline",
+			"description": "",
+			"category": "231c852f-8d4d-47aa-a5ef-5447f1237046",
 			"steps": []
 		}
 	],

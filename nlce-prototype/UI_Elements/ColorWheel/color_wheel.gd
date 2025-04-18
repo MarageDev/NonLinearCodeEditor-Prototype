@@ -61,4 +61,3 @@ func _input(event: InputEvent) -> void:
 	if visible and event is InputEventMouseButton and event.pressed:
 		if not get_global_rect().has_point(event.global_position):
 			queue_free()
-			#get_viewport().set_input_as_handled()

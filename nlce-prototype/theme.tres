@@ -311,6 +311,7 @@ GraphNode/styles/panel_selected = SubResource("StyleBoxFlat_yin2u")
 GraphNode/styles/titlebar = SubResource("StyleBoxFlat_05tig")
 GraphNode/styles/titlebar_selected = SubResource("StyleBoxFlat_ttqs8")
 GraphNodeTitleLabel/font_sizes/font_size = 13
+Label/font_sizes/font_size = 13
 LineEdit/font_sizes/font_size = 13
 LineEdit/styles/focus = SubResource("StyleBoxFlat_wdt2l")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_110ce")
