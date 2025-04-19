@@ -14,11 +14,15 @@ config/name="NLCE-Prototype"
 run/main_scene="uid://cv4ij82ojmnv"
 config/features=PackedStringArray("4.4", "Mobile")
 run/max_fps=60
+boot_splash/bg_color=Color(0.0941176, 0.0941176, 0.0941176, 1)
+boot_splash/fullsize=false
+boot_splash/image="uid://v5c63wq72qtx"
 config/icon="res://icon.svg"
 
 [autoload]
 
 GlobalManager="*res://Global/global_manager.gd"
+FileManager="*res://Global/file_manager.gd"
 
 [display]
 

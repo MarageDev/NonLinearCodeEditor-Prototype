@@ -1,5 +1,5 @@
 extends Control
-
+class_name Workspace
 @export var file_path: String = ""
 @export var separators: Array = []
 @onready var graph_edit: GraphEdit = $GraphEdit

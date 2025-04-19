@@ -141,5 +141,6 @@ layout_mode = 2
 size_flags_horizontal = 10
 placeholder_text = "./Syntax"
 
+[connection signal="gui_input" from="Panel" to="." method="_on_panel_gui_input"]
 [connection signal="value_changed" from="Panel/Panel/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/FPS_SpinBox" to="." method="_on_fps_spin_box_value_changed"]
 [connection signal="item_selected" from="Panel/Panel/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer2/OptionButton" to="." method="_on_option_button_item_selected"]

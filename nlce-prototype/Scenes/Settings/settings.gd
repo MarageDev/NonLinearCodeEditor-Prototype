@@ -4,8 +4,6 @@ extends Control
 func _ready() -> void:
 	_on_fps_spin_box_value_changed(fps_spin_box.value)
 	_on_option_button_item_selected(1)
-func _process(delta: float) -> void:
-	print(delta)
 
 
 func _on_fps_spin_box_value_changed(value: float) -> void:
@@ -17,3 +15,11 @@ func _on_option_button_item_selected(index: int) -> void:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 	else :
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+
+
+
+
+func _on_panel_gui_input(event: InputEvent) -> void:
+	print("ehhhhhh")
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		queue_free()
