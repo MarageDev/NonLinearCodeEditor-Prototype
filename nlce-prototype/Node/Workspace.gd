@@ -8,10 +8,10 @@ var code_graph_nodes:Array[GraphCodeNode] = []
 
 func _ready() -> void:
 	FileManager.workspace = self
-"""
+
 	var blocks: Array = SeparateCodeBlocksInFile(file_path, separators)
 	spawn_nodes_in_grid(blocks, graph_edit, "res://Node/SingleCodeNode/SingleCodeNode.tscn",3)
-"""
+
 func spawn_nodes_in_grid(blocks: Array, graph_edit: GraphEdit, node_scene_path: String, nodes_per_row: int = 4, spacing: Vector2 = Vector2(40, 40)) -> void:
 	var default_size:Vector2 = Vector2(300,300)
 	for i in range(blocks.size()):
@@ -86,7 +86,7 @@ func SeparateCodeBlocksInFile(file_path: String, separators: Array) -> Array:
 
 
 func _input(event):
-	var framed_nodes: Array[GraphNode] = []
+	var framed_nodes: Array[GraphCodeNode] = []
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 		# Gather selected nodes
 		framed_nodes.clear()

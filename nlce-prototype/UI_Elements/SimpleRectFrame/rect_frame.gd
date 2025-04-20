@@ -1,7 +1,7 @@
 extends GraphFrame
 class_name RectGraphFrame
 
-@export var framed_graph_nodes: Array[GraphNode] = []
+@export var framed_graph_nodes: Array[GraphCodeNode] = []
 var padding = Vector2(40, 40)
 var last_position_offset := Vector2.ZERO
 var is_dragging_frame := false
@@ -14,7 +14,7 @@ func _ready():
 	autoshrink_margin = 40
 	_update_frame_transform()
 
-func set_framed_nodes(nodes: Array[GraphNode]):
+func set_framed_nodes(nodes: Array[GraphCodeNode]):
 	framed_graph_nodes = nodes
 	for node in nodes:
 		if not node.is_connected("position_offset_changed", Callable(self, "_on_node_moved")):
@@ -90,6 +90,7 @@ func _on_double_click(event):
 
 func _frame_title_edit(new_title):
 	title = new_title
+	name = new_title
 
 func _remove_frame():
 	queue_free()

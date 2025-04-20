@@ -15,8 +15,10 @@ var custom_title_bar:CustomGraphNodeTitlebar
 
 func _ready() -> void:
 	await get_tree()
+	name = str(randi_range(100,999))
+	if node_content and code_edit :
+		code_edit.text = node_content
 
-	if node_content and code_edit : code_edit.text = node_content
 
 	setup_custom_titlebar(self)
 
@@ -75,7 +77,9 @@ func _on_titlebar_double_clicked(pos:Vector2):
 	rename.text_submitted.connect(_node_title_edit)
 
 func _node_title_edit(new_text:String):
-	if new_text != null : custom_title_bar.label.text = new_text
+	if new_text != null :
+		custom_title_bar.label.text = new_text
+		name = str(new_text)
 
 func set_graphnode_color(color: Color):
 	var stylebox_panel:StyleBoxFlat = get_theme_stylebox("panel").duplicate()
