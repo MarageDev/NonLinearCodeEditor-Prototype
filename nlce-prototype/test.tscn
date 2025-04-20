@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://dy3grpg7uqg0g"]
+
+[ext_resource type="Script" uid="uid://b0i6cqpg3smp4" path="res://Scenes/Main.gd" id="1_ehkex"]
+[ext_resource type="PackedScene" uid="uid://dvnrm1ejr1ag6" path="res://Scenes/LogicTest.tscn" id="2_xersf"]
+[ext_resource type="PackedScene" uid="uid://dodag2ea1vs35" path="res://UI_Elements/titlebar/titlebar.tscn" id="4_77dp3"]
+[ext_resource type="Theme" uid="uid://0otub1cq8um6" path="res://theme.tres" id="5_5tkv4"]
+[ext_resource type="Script" uid="uid://dgij4fs5pfeyo" path="res://Global/file_manager.gd" id="7_b0q6j"]
+[ext_resource type="Script" uid="uid://0kmpqq2clt7n" path="res://Global/global_manager.gd" id="8_mhym6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6pedr"]
+bg_color = Color(0.121569, 0.121569, 0.121569, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.117647, 0.117647, 0.117647, 1)
+corner_detail = 1
+
+[node name="Control" type="Control" node_paths=PackedStringArray("titlebar", "workspace")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ehkex")
+titlebar = NodePath("MarginTitlebar/Titlebar")
+workspace = NodePath("LogicTest/Code")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6pedr")
+
+[node name="LogicTest" parent="." instance=ExtResource("2_xersf")]
+layout_mode = 1
+offset_top = 37.0
+
+[node name="Code" parent="LogicTest" index="0"]
+file_path = "res://CodeExamples/WorkspaceTest.gd"
+separators = ["func"]
+
+[node name="MarginTitlebar" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 37.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 0
+
+[node name="Titlebar" parent="MarginTitlebar" instance=ExtResource("4_77dp3")]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+theme = ExtResource("5_5tkv4")
+window_name = "NLCE Prototype"
+
+[node name="Node2" type="Node" parent="."]
+script = ExtResource("7_b0q6j")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("8_mhym6")
+
+[editable path="LogicTest"]
+[editable path="LogicTest/Code"]

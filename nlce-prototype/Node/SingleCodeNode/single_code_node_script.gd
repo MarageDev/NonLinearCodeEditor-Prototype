@@ -4,10 +4,12 @@ class_name GraphCodeNode
 @export var node_content:String = ""
 @export var code_edit:CodeEdit
 
-var customColor:bool = false
+@export var CodeNodeAssociatedResource:CodeNodeResource = CodeNodeResource.new()
+
+@export var customColor:bool = false
 @export var customNodeColor:Color = Color.WHITE
 
-var node_index:int = 0
+@export var node_index:int = 0
 
 var custom_title_bar:CustomGraphNodeTitlebar
 
@@ -17,7 +19,19 @@ func _ready() -> void:
 	if node_content and code_edit : code_edit.text = node_content
 
 	setup_custom_titlebar(self)
-	#set_graphnode_color(Color(randf(),randf(),randf()))
+
+	CodeNodeAssociatedResource.content = node_content
+	CodeNodeAssociatedResource.code_index = node_index
+
+
+func set_code_content(content:String):
+	code_edit.text = content
+func setup_node():
+	setup_custom_titlebar(self)
+
+	CodeNodeAssociatedResource.content = node_content
+	CodeNodeAssociatedResource.code_index = node_index
+	if node_content and code_edit : code_edit.text = node_content
 func _on_resize_request(new_size: Vector2) -> void:
 	code_edit.scroll_fit_content_height = false
 	code_edit.scroll_fit_content_width = false

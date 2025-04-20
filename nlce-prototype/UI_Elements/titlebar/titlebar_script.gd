@@ -174,26 +174,16 @@ func file_open_recent():
 	popup.popup_centered_ratio(0.3)
 
 func file_save():
-
+	FileManager.save_file()
 	if not _has_current_file():
 		file_save_as()
 		return
 
-	FileManager.save_file()
+
 
 
 func file_save_as():
-
-	var file_dialog = FileDialog.new()
-	file_dialog.file_mode = FileDialog.FILE_MODE_SAVE_FILE
-	file_dialog.access = FileDialog.ACCESS_FILESYSTEM
-	file_dialog.set_use_native_dialog(true)
-
-	add_child(file_dialog)
-
-	file_dialog.file_selected.connect(_on_file_dialog_save_selected)
-	file_dialog.popup_centered_ratio()
-	file_dialog.queue_free()
+	pass
 
 func _on_file_dialog_save_selected(path: String):
 	FileManager.save_file_as(path)

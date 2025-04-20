@@ -16,10 +16,6 @@ func _on_option_button_item_selected(index: int) -> void:
 	else :
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 
-
-
-
 func _on_panel_gui_input(event: InputEvent) -> void:
-	print("ehhhhhh")
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		queue_free()

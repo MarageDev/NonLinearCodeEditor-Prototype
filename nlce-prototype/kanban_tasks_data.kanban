@@ -40,7 +40,8 @@
 			"tasks": [
 				"7684e371-64fa-4da6-8c58-b4a9ccd4862b",
 				"b5e8a340-e156-4440-9948-40f55e99b7e8",
-				"f7740d87-ad4a-47f1-8658-14a7b1f8c562"
+				"f7740d87-ad4a-47f1-8658-14a7b1f8c562",
+				"30ba052a-b4a1-436c-849f-35c32fe00f56"
 			]
 		},
 		{
@@ -123,6 +124,13 @@
 			"title": "Script timeline",
 			"description": "",
 			"category": "231c852f-8d4d-47aa-a5ef-5447f1237046",
+			"steps": []
+		},
+		{
+			"uuid": "30ba052a-b4a1-436c-849f-35c32fe00f56",
+			"title": "Hide some useless nodes",
+			"description": "Make it like half transparent\n",
+			"category": "ee13d63a-ca34-4b9e-b514-a7288556b155",
 			"steps": []
 		}
 	],

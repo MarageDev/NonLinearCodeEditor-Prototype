@@ -4,14 +4,32 @@ class_name Workspace
 @export var separators: Array = []
 @onready var graph_edit: GraphEdit = $GraphEdit
 
+var code_graph_nodes:Array[GraphCodeNode] = []
+
 func _ready() -> void:
+	FileManager.workspace = self
+"""
 	var blocks: Array = SeparateCodeBlocksInFile(file_path, separators)
-	for i in range(len(blocks)):
-		var newGraphCodeNode: GraphCodeNode =load("res://Node/SingleCodeNode/SingleCodeNode.tscn").instantiate()
+	spawn_nodes_in_grid(blocks, graph_edit, "res://Node/SingleCodeNode/SingleCodeNode.tscn",3)
+"""
+func spawn_nodes_in_grid(blocks: Array, graph_edit: GraphEdit, node_scene_path: String, nodes_per_row: int = 4, spacing: Vector2 = Vector2(40, 40)) -> void:
+	var default_size:Vector2 = Vector2(300,300)
+	for i in range(blocks.size()):
+		var newGraphCodeNode: GraphCodeNode = load(node_scene_path).instantiate()
 		newGraphCodeNode.node_index = i
 		newGraphCodeNode.node_content = blocks[i]
 		graph_edit.add_child(newGraphCodeNode)
-		newGraphCodeNode.position_offset = DisplayServer.window_get_size()/2. - newGraphCodeNode.size/2.
+		code_graph_nodes.append(newGraphCodeNode)
+		var row := i / nodes_per_row
+		var col := i % nodes_per_row
+		var pos := Vector2(
+			col * (default_size.x + spacing.x),
+			row * (default_size.y + spacing.y)
+		)
+		newGraphCodeNode.position_offset = pos
+		newGraphCodeNode.owner = graph_edit	# Use this to make it save-able in resource
+
+
 func SeparateCodeBlocksInFile(file_path: String, separators: Array) -> Array:
 	var file = FileAccess.open(file_path, FileAccess.READ)
 	if not file:
@@ -86,6 +104,7 @@ func frame_selected_nodes(framed_nodes):
 	dynamic_frame.title = "Group " + str(randi_range(0, 999))
 	dynamic_frame.set_framed_nodes(framed_nodes)
 	graph_edit.add_child(dynamic_frame)
+	dynamic_frame.owner = graph_edit
 
 
 func _unhandled_input(event):

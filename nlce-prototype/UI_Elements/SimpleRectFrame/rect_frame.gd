@@ -1,7 +1,7 @@
 extends GraphFrame
 class_name RectGraphFrame
 
-var framed_graph_nodes: Array[GraphNode] = []
+@export var framed_graph_nodes: Array[GraphNode] = []
 var padding = Vector2(40, 40)
 var last_position_offset := Vector2.ZERO
 var is_dragging_frame := false
@@ -13,6 +13,7 @@ func _ready():
 	autoshrink_enabled = true
 	autoshrink_margin = 40
 	_update_frame_transform()
+
 func set_framed_nodes(nodes: Array[GraphNode]):
 	framed_graph_nodes = nodes
 	for node in nodes:

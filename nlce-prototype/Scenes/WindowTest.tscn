@@ -40,6 +40,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_6pedr")
 layout_mode = 1
 offset_top = 37.0
 
+[node name="Code" parent="LogicTest" index="0"]
+file_path = "res://CodeExamples/WorkspaceTest.gd"
+separators = ["func"]
+
 [node name="MarginTitlebar" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(0, 36)
 layout_mode = 1
