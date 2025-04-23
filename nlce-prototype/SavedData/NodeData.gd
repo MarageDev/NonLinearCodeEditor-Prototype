@@ -1,8 +1,10 @@
-class_name NodeData
+class_name NodeDataRes
 extends Resource
 
 @export var name: String
+@export var node_title:String
+@export var node_index:int
 @export var position: Vector2
 @export var size: Vector2
 @export var text: String
-@export var custom_properties: Dictionary = {}
+@export var color:Color

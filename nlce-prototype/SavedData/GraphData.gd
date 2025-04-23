@@ -1,6 +1,5 @@
-class_name GraphData
+class_name GraphDataRes
 extends Resource
 
-@export var nodes: Array[NodeData]
-@export var frames: Array[FrameData]
-#@export var connections: Array[Dictionary]  # Each dict: {from_node, from_port, to_node, to_port}
+@export var nodes: Array[NodeDataRes]
+@export var frames: Array[FrameDataRes]

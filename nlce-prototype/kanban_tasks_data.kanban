@@ -41,7 +41,9 @@
 				"7684e371-64fa-4da6-8c58-b4a9ccd4862b",
 				"b5e8a340-e156-4440-9948-40f55e99b7e8",
 				"f7740d87-ad4a-47f1-8658-14a7b1f8c562",
-				"30ba052a-b4a1-436c-849f-35c32fe00f56"
+				"30ba052a-b4a1-436c-849f-35c32fe00f56",
+				"8428d07e-b593-4e1c-a9e8-d311b96c2775",
+				"cdc90e3e-4f04-4e9d-a301-1d633fb576a3"
 			]
 		},
 		{
@@ -131,6 +133,20 @@
 			"title": "Hide some useless nodes",
 			"description": "Make it like half transparent\n",
 			"category": "ee13d63a-ca34-4b9e-b514-a7288556b155",
+			"steps": []
+		},
+		{
+			"uuid": "8428d07e-b593-4e1c-a9e8-d311b96c2775",
+			"title": "Troubles seeing if frame is selected or not",
+			"description": "",
+			"category": "c110da11-efcd-4c8f-8aef-b1e5a45da7c3",
+			"steps": []
+		},
+		{
+			"uuid": "cdc90e3e-4f04-4e9d-a301-1d633fb576a3",
+			"title": "Clicking outside when renaming enters the name",
+			"description": "",
+			"category": "231c852f-8d4d-47aa-a5ef-5447f1237046",
 			"steps": []
 		}
 	],

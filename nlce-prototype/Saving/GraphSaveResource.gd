@@ -1,12 +1,7 @@
 extends Resource
 class_name GraphData
-@export var nodes: Array[NodeData]
+@export var nodes: Array[NodeDataRes]
 @export var connections: Array[Dictionary]
-
-class NodeData extends Resource:
-	@export var name: String
-	@export var position: Vector2
-	@export var content:CodeNodeResource
 
 
 func save_graph(path: String,graph_edit_node:GraphEdit):
@@ -15,7 +10,7 @@ func save_graph(path: String,graph_edit_node:GraphEdit):
 	# Save nodes
 	for node in graph_edit_node.get_children():
 		if node is GraphCodeNode:
-			var data = NodeData.new()
+			var data = NodeDataRes.new()
 			data.name = node.name
 			data.position = node.position_offset
 			data.content = node.CodeNodeAssociatedResource

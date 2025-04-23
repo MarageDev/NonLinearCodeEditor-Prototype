@@ -6,14 +6,14 @@ var padding = Vector2(40, 40)
 var last_position_offset := Vector2.ZERO
 var is_dragging_frame := false
 var ignore_frame_position_change := false
-
+var frame_title:String
 func _ready():
 	last_position_offset = position_offset
 	connect("position_offset_changed", Callable(self, "_on_frame_moved"))
 	autoshrink_enabled = true
 	autoshrink_margin = 40
 	_update_frame_transform()
-
+	if frame_title != "" : set_frame_title(frame_title)
 func set_framed_nodes(nodes: Array[GraphCodeNode]):
 	framed_graph_nodes = nodes
 	for node in nodes:
@@ -90,8 +90,10 @@ func _on_double_click(event):
 
 func _frame_title_edit(new_title):
 	title = new_title
-	name = new_title
-
+	frame_title = new_title
+func set_frame_title(new_title):
+	title = new_title
+	frame_title = new_title
 func _remove_frame():
 	queue_free()
 

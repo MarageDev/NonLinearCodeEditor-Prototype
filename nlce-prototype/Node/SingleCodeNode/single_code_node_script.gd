@@ -10,12 +10,12 @@ class_name GraphCodeNode
 @export var customNodeColor:Color = Color.WHITE
 
 @export var node_index:int = 0
-
+var node_title:String
 var custom_title_bar:CustomGraphNodeTitlebar
 
 func _ready() -> void:
-	await get_tree()
-	name = str(randi_range(100,999))
+	#await get_tree()
+
 	if node_content and code_edit :
 		code_edit.text = node_content
 
@@ -24,7 +24,6 @@ func _ready() -> void:
 
 	CodeNodeAssociatedResource.content = node_content
 	CodeNodeAssociatedResource.code_index = node_index
-
 
 func set_code_content(content:String):
 	code_edit.text = content
@@ -62,7 +61,7 @@ func setup_custom_titlebar(graph_node:GraphNode):
 	titlebar.move_child(custom_titlebar_node,0)
 	custom_titlebar_node.double_clicked.connect(_on_titlebar_double_clicked)
 	custom_title_bar = custom_titlebar_node
-
+	set_node_title(node_title)
 	custom_titlebar_node.label_number.text = str(node_index)
 func _on_titlebar_double_clicked(pos:Vector2):
 	var margin:float = 15.
@@ -77,11 +76,16 @@ func _on_titlebar_double_clicked(pos:Vector2):
 	rename.text_submitted.connect(_node_title_edit)
 
 func _node_title_edit(new_text:String):
-	if new_text != null :
+	if new_text != "" :
 		custom_title_bar.label.text = new_text
-		name = str(new_text)
-
+		node_title = new_text
+func set_node_title(new_title:String):
+	if new_title != "" :
+		custom_title_bar.label.text = new_title
+		node_title = new_title
 func set_graphnode_color(color: Color):
+	customColor = true
+	customNodeColor = color
 	var stylebox_panel:StyleBoxFlat = get_theme_stylebox("panel").duplicate()
 	stylebox_panel.bg_color = Color.from_hsv(color.h,color.s,0.09)
 	stylebox_panel.border_color = Color.from_hsv(color.h,color.s,0.14)
