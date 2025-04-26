@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://fwj01r07gxv0"]
+
+[ext_resource type="Script" uid="uid://mdjalhxwt2pe" path="res://RectFrame/rect_frame.gd" id="1_3uosb"]
+
+[node name="RectFrame" type="GraphFrame"]
+offset_right = 257.0
+offset_bottom = 106.0
+selected = true
+tint_color_enabled = true
+tint_color = Color(0, 0, 0, 0.470588)
+script = ExtResource("1_3uosb")
+
+[connection signal="dragged" from="." to="." method="_on_dragged"]
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="node_selected" from="." to="." method="_on_node_selected"]

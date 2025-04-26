@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxfser54s53i"]
-
-[ext_resource type="PackedScene" uid="uid://dsh3gmbxrbjeo" path="res://Node/SingleCodeNode/CustomGraphNodeTitlebar/CustomGraphNodeTitlebar.tscn" id="1_m3pxm"]
-
-[node name="Aaaaaaaaaaaa" type="ColorPicker"]
-
-[node name="CustomGraphNodeTitlebar" parent="." instance=ExtResource("1_m3pxm")]
-layout_mode = 2

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn6fvj4xr8psc"]
+
+[ext_resource type="Script" uid="uid://fcwhsxhkb2n1" path="res://ColorWheel/ColorSampleButton/color_swatches_button.gd" id="1_qultb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bq03f"]
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="ColorSwatchesButton" type="Button"]
+custom_minimum_size = Vector2(30, 30)
+theme_override_styles/normal = SubResource("StyleBoxFlat_bq03f")
+script = ExtResource("1_qultb")

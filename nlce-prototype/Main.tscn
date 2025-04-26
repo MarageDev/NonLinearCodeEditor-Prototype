@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://bth4q2luc2lpp"]
+
+[ext_resource type="PackedScene" uid="uid://dodag2ea1vs35" path="res://Titlebar/titlebar.tscn" id="1_glv2v"]
+[ext_resource type="Script" uid="uid://b0i6cqpg3smp4" path="res://Main.gd" id="1_r0du0"]
+[ext_resource type="PackedScene" uid="uid://cu8h3h4uw5qf1" path="res://Workspace/Workspace.tscn" id="2_uu6xs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r0du0"]
+bg_color = Color(0.121569, 0.121569, 0.121569, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.117647, 0.117647, 0.117647, 1)
+corner_detail = 1
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r0du0")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r0du0")
+
+[node name="Workspace" parent="." instance=ExtResource("2_uu6xs")]
+layout_mode = 1
+offset_top = 36.0
+
+[node name="Titlebar" parent="." instance=ExtResource("1_glv2v")]
+layout_mode = 1
+anchors_preset = 10
+anchor_bottom = 0.0
+offset_bottom = 36.0
+grow_vertical = 1

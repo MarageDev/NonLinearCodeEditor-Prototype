@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsh3gmbxrbjeo"]
+
+[ext_resource type="Script" uid="uid://tnm4x4ydwnqh" path="res://CodeNode/GraphNodeTitlebar/graph_node_titlebar.gd" id="1_1j23n"]
+[ext_resource type="Texture2D" uid="uid://bf4acd2ukhllp" path="res://icon.svg" id="2_o3slp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_crxji"]
+
+[node name="GraphNodeTitlebar" type="Panel"]
+custom_minimum_size = Vector2(0, 20)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_crxji")
+script = ExtResource("1_1j23n")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_o3slp")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "blabablabla"
+
+[node name="Label_number" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 0.392157)
+text = "blabablabla"
+horizontal_alignment = 2

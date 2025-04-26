@@ -1,8 +1,9 @@
 extends Node
 
-var workspace:Workspace
+var workspace:WorkspaceClass
 
 var current_file_path:String = ""
+
 
 func open_selected_file(path:String):
 	print(path)
@@ -51,7 +52,7 @@ func get_recent_files()->Array[String]:
 
 func retrieve_whole_code() -> String:
 	var whole_code: String = ""
-	for i: GraphCodeNode in workspace.code_graph_nodes:
+	for i: CodeNodeClass in workspace.code_graph_nodes:
 		if i.CodeNodeAssociatedResource and i.CodeNodeAssociatedResource.content:
 			whole_code += i.CodeNodeAssociatedResource.content + "\n"
 	return whole_code
@@ -70,7 +71,7 @@ func save_graph_manual_serialization(path: String):
 	var node_saving_index:int = 0
 	# Save nodes
 	for node in workspace.graph_edit.get_children():
-		if node is GraphCodeNode:
+		if node is CodeNodeClass:
 			var node_data = NodeDataRes.new()
 			node.name = "Node_"+str(node_saving_index) #useful when saving frame
 			node_data.name = node.name
@@ -86,7 +87,7 @@ func save_graph_manual_serialization(path: String):
 
 	# Save frames
 	for frame in workspace.graph_edit.get_children():
-		if frame is RectGraphFrame:
+		if frame is RectFrameClass:
 			var frame_data = FrameDataRes.new()
 			frame_data.name = frame.name
 			frame_data.frame_title = frame.frame_title
@@ -108,14 +109,14 @@ func load_graph_manual_serialization(path: String):
 
 	# Clear existing nodes and frames
 	for child in workspace.graph_edit.get_children(true):
-		if child is GraphCodeNode or child is RectGraphFrame:
+		if child is CodeNodeClass or child is RectFrameClass:
 			child.queue_free()
 
 	var node_map = {}
 
 	# Recreate nodes
 	for node_data:NodeDataRes in graph_data.nodes:
-		var node:GraphCodeNode = preload("res://Node/SingleCodeNode/SingleCodeNode.tscn").instantiate()
+		var node:CodeNodeClass = preload("res://CodeNode/CodeNode.tscn").instantiate()
 		node.code_edit.scroll_fit_content_height = false
 		node.code_edit.scroll_fit_content_width = false
 		node.name = node_data.name
@@ -132,7 +133,7 @@ func load_graph_manual_serialization(path: String):
 
 	# Recreate frames
 	for frame_data:FrameDataRes in graph_data.frames:
-		var frame:RectGraphFrame = preload("res://UI_Elements/SimpleRectFrame/RectFrame.tscn").instantiate()
+		var frame:RectFrameClass = preload("res://RectFrame/RectFrame.tscn").instantiate()
 		frame.name = frame_data.name
 		frame.title = frame_data.frame_title
 		frame.frame_title = frame_data.frame_title
@@ -142,7 +143,7 @@ func load_graph_manual_serialization(path: String):
 		workspace.graph_edit.add_child(frame)
 		print(frame_data.framed_graph_nodes)
 		# Set framed nodes after all nodes are created
-		var framed_nodes:Array[GraphCodeNode] = []
+		var framed_nodes:Array[CodeNodeClass] = []
 		for node_name in frame_data.framed_graph_nodes:
 			if node_map.has(node_name):
 				framed_nodes.append(node_map[node_name])

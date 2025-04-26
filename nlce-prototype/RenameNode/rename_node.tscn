@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqihjhwqtgte6"]
+
+[ext_resource type="Script" uid="uid://duvw1sx83coum" path="res://RenameNode/rename_node.gd" id="1_5bplb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c4t1g"]
+
+[node name="RenameNode" type="Control"]
+top_level = true
+custom_minimum_size = Vector2(150, 25)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 150.0
+offset_bottom = 25.0
+script = ExtResource("1_5bplb")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_c4t1g")
+
+[node name="LineEdit" type="LineEdit" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"LineEditShadow"
+placeholder_text = "New node title"
+
+[connection signal="focus_exited" from="Panel/LineEdit" to="." method="_on_line_edit_focus_exited"]
+[connection signal="text_submitted" from="Panel/LineEdit" to="." method="_on_line_edit_text_submitted"]

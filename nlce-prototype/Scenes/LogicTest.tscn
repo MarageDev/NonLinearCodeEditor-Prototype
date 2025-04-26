@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dvnrm1ejr1ag6"]
 
-[ext_resource type="PackedScene" uid="uid://cu8h3h4uw5qf1" path="res://Node/Workspace.tscn" id="1_mxt0t"]
+[ext_resource type="PackedScene" uid="uid://cu8h3h4uw5qf1" path="res://Workspace/Workspace.tscn" id="1_mxt0t"]
 
 [node name="LogicTest" type="Control"]
 layout_mode = 3

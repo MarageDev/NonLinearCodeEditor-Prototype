@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu8h3h4uw5qf1"]
+
+[ext_resource type="Script" uid="uid://sadn02d267qj" path="res://Workspace/Workspace.gd" id="1_qagv2"]
+
+[node name="Workspace" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qagv2")
+file_path = "res://CodeExamples/sum2.py"
+separators = ["def"]
+
+[node name="GraphEdit" type="GraphEdit" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+grid_pattern = 1
+snapping_enabled = false
+minimap_size = Vector2(120, 80)
+show_menu = false
+show_zoom_buttons = false
+show_minimap_button = false
+show_arrange_button = false
