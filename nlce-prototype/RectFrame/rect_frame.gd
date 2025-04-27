@@ -2,6 +2,7 @@ extends GraphFrame
 class_name RectFrameClass
 
 @export var framed_graph_nodes: Array[CodeNodeClass] = []
+
 var padding = Vector2(40, 40)
 var last_position_offset := Vector2.ZERO
 var is_dragging_frame := false
@@ -9,7 +10,9 @@ var ignore_frame_position_change := false
 var frame_title:String
 func _ready():
 	last_position_offset = position_offset
+
 	connect("position_offset_changed", Callable(self, "_on_frame_moved"))
+
 	autoshrink_enabled = true
 	autoshrink_margin = 40
 	_update_frame_transform()
@@ -17,8 +20,11 @@ func _ready():
 func set_framed_nodes(nodes: Array[CodeNodeClass]):
 	framed_graph_nodes = nodes
 	for node in nodes:
-		if not node.is_connected("position_offset_changed", Callable(self, "_on_node_moved")):
-			node.connect("position_offset_changed", Callable(self, "_on_node_moved"))
+		if not node.is_connected("position_offset_changed", self._on_node_moved):
+			node.connect("position_offset_changed", self._on_node_moved)
+		if not node.is_connected("resize_request", self._on_node_moved):
+			node.connect("resize_request", self._on_node_resized)
+
 	_update_frame_transform()
 	last_position_offset = position_offset
 
@@ -56,7 +62,8 @@ func _on_frame_moved():
 
 func _on_node_moved():
 	_update_frame_transform()
-
+func _on_node_resized(arg):
+	_update_frame_transform()
 const DOUBLE_CLICK_TIME = 0.3
 var last_click_time = 0.0
 

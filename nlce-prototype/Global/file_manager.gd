@@ -6,8 +6,7 @@ var current_file_path:String = ""
 
 
 func open_selected_file(path:String):
-	print(path)
-	load_graph_manual_serialization("./SavedGraph/gr.res")
+	load_graph_manual_serialization("./SavedData/gr.res")
 func save_file():
 	#save_graph('./SavedGraph/save.res')
 	"""var file_dialog = FileDialog.new()
@@ -45,7 +44,7 @@ func _on_file_dialog_save_selected(path: String):
 
 
 func save_file_as(file_name:String):
-	save_graph_manual_serialization("./SavedGraph/gr.res")
+	save_graph_manual_serialization("./SavedData/gr.res")
 func get_recent_files()->Array[String]:
 	return []
 
@@ -72,16 +71,16 @@ func save_graph_manual_serialization(path: String):
 	# Save nodes
 	for node in workspace.graph_edit.get_children():
 		if node is CodeNodeClass:
+
 			var node_data = NodeDataRes.new()
+			node._update_data()
 			node.name = "Node_"+str(node_saving_index) #useful when saving frame
 			node_data.name = node.name
-			node_data.node_title = node.node_title
 			node_data.position = node.position_offset
-			node_data.node_index = node.node_index
 			node_data.size = node.size
-			node_data.text = node.node_content
-			node_data.color = node.customNodeColor
-			# Add any custom properties you need
+
+			node_data.data = node.data
+
 			graph_data.nodes.append(node_data)
 			node_saving_index +=1
 
@@ -104,6 +103,10 @@ func save_graph_manual_serialization(path: String):
 	ResourceSaver.save(graph_data, path)
 
 func load_graph_manual_serialization(path: String):
+	if not FileAccess.file_exists(path) :
+		push_error("no file to load")
+		return
+
 	var graph_data = load(path) as GraphDataRes
 
 
@@ -120,15 +123,12 @@ func load_graph_manual_serialization(path: String):
 		node.code_edit.scroll_fit_content_height = false
 		node.code_edit.scroll_fit_content_width = false
 		node.name = node_data.name
-		node.node_title = node_data.node_title
-		node.node_index = node_data.node_index
-		node.node_content = node_data.text
 		node.position_offset = node_data.position
 		node.size = node_data.size
-		node.code_edit.text = node_data.text
-		node.customNodeColor = node_data.color
-		node.set_graphnode_color(node_data.color)
+		node.data = node_data.data
+
 		workspace.graph_edit.add_child(node)
+		node.apply_data(node_data.data)
 		node_map[node.name] = node
 
 	# Recreate frames
@@ -141,8 +141,7 @@ func load_graph_manual_serialization(path: String):
 		frame.size = frame_data.size
 		frame.set_frame_color(frame_data.color)
 		workspace.graph_edit.add_child(frame)
-		print(frame_data.framed_graph_nodes)
-		# Set framed nodes after all nodes are created
+
 		var framed_nodes:Array[CodeNodeClass] = []
 		for node_name in frame_data.framed_graph_nodes:
 			if node_map.has(node_name):

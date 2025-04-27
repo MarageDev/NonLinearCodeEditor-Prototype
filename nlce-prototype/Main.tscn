@@ -41,3 +41,4 @@ anchors_preset = 10
 anchor_bottom = 0.0
 offset_bottom = 36.0
 grow_vertical = 1
+window_name = "NCLE"

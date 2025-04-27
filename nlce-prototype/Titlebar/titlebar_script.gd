@@ -33,10 +33,14 @@ var dragging_start_position = Vector2()
 
 
 func _ready() -> void:
+
 	h_box_container_2.custom_minimum_size = Vector2(buttons_area_minimum_size,0.)
 	set_menu_content_margins(5,5,5,5,5,5,5,5)
+
 	_connect_menu_buttons()
+
 	if window_name and label: label.text = window_name
+
 	if panel:
 		var style:StyleBoxFlat = panel.get_theme_stylebox("panel")
 		style.corner_radius_bottom_left = corner_radius_bottom_left
