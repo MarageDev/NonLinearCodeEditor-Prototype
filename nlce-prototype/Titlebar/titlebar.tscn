@@ -472,6 +472,7 @@ popup/item_5/id = 6
 popup/item_5/separator = true
 popup/item_6/text = "Reload"
 popup/item_6/id = 4
+popup/item_6/disabled = true
 
 [node name="EditMenuButton" type="MenuButton" parent="MarginContainer/HBoxContainer/Control/HBoxContainer3/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -575,7 +576,7 @@ theme_override_constants/margin_bottom = 5
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 focus_mode = 0
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 10
 theme_override_styles/focus = SubResource("StyleBoxFlat_dt8i7")
 theme_override_styles/hover = SubResource("StyleBoxFlat_dt8i7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_dt8i7")

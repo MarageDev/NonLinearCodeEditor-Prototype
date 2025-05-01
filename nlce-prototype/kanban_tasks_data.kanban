@@ -43,7 +43,8 @@
 				"f7740d87-ad4a-47f1-8658-14a7b1f8c562",
 				"30ba052a-b4a1-436c-849f-35c32fe00f56",
 				"8428d07e-b593-4e1c-a9e8-d311b96c2775",
-				"cdc90e3e-4f04-4e9d-a301-1d633fb576a3"
+				"cdc90e3e-4f04-4e9d-a301-1d633fb576a3",
+				"ad82616f-dd4a-49bb-864e-7fff225e4d87"
 			]
 		},
 		{
@@ -53,14 +54,16 @@
 				"b13d31f3-6e09-46b5-a50a-f5acfd6490ce",
 				"21a13afe-93d0-470e-b259-8899da6dff70",
 				"3c393d79-5c4f-4516-b8b5-9739534b4be1",
-				"eaac8da3-e63e-49a2-81a2-e88b2cdaf900"
+				"eaac8da3-e63e-49a2-81a2-e88b2cdaf900",
+				"2c785860-bf81-440f-8169-a5b24df037c8"
 			]
 		},
 		{
 			"uuid": "9077b9a0-ae8d-48dd-a9f7-720408da10b5",
 			"title": "To Fix",
 			"tasks": [
-				"f06f31d0-33d0-4de0-ad77-247fb5057cea"
+				"f06f31d0-33d0-4de0-ad77-247fb5057cea",
+				"796dedd0-5222-47bc-adbc-f39073fb8f6e"
 			]
 		}
 	],
@@ -147,6 +150,27 @@
 			"title": "Clicking outside when renaming enters the name",
 			"description": "",
 			"category": "231c852f-8d4d-47aa-a5ef-5447f1237046",
+			"steps": []
+		},
+		{
+			"uuid": "796dedd0-5222-47bc-adbc-f39073fb8f6e",
+			"title": "Frame title not saved",
+			"description": "",
+			"category": "a452036f-b324-4721-8539-d7aa594653b8",
+			"steps": []
+		},
+		{
+			"uuid": "2c785860-bf81-440f-8169-a5b24df037c8",
+			"title": "Frame color not working ",
+			"description": "",
+			"category": "a452036f-b324-4721-8539-d7aa594653b8",
+			"steps": []
+		},
+		{
+			"uuid": "ad82616f-dd4a-49bb-864e-7fff225e4d87",
+			"title": "Removing frames",
+			"description": "",
+			"category": "a452036f-b324-4721-8539-d7aa594653b8",
 			"steps": []
 		}
 	],

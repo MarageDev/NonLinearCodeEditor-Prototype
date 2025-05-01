@@ -6,11 +6,13 @@ class_name WorkspaceClass
 
 var code_graph_nodes:Array[CodeNodeClass] = []
 
+
 func _ready() -> void:
 	FileManager.workspace = self
-
+	GlobalManager.current_file_path = "res://CodeNode/CodeNode.tscn"
 	var blocks: Array = SeparateCodeBlocksInFile(file_path, separators)
-	spawn_nodes_in_grid(blocks, graph_edit,"res://CodeNode/CodeNode.tscn",3)
+
+	spawn_nodes_in_grid(blocks, graph_edit,GlobalManager.current_file_path,3)
 
 func spawn_nodes_in_grid(blocks: Array, graph_edit: GraphEdit, node_scene_path: String, nodes_per_row: int = 4, spacing: Vector2 = Vector2(40, 40)) -> void:
 	var default_size:Vector2 = Vector2(300,300)
@@ -119,7 +121,7 @@ func _handle_color_change(new_color:Color):
 	for i in selected_nodes:
 		if i is CodeNodeClass:
 			i.set_graphnode_color(new_color)
-		elif i is CodeNodeClass:
+		elif i is RectFrameClass:
 			i.set_frame_color(new_color)
 		else: continue
 

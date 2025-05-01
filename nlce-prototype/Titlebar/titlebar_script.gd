@@ -147,23 +147,22 @@ func _on_file_item_selected(id: int):
 
 # File Operations Implementation
 func file_open_file():
-	"""
 	var file_dialog = FileDialog.new()
 	file_dialog.file_mode = FileDialog.FILE_MODE_OPEN_FILE
 	file_dialog.access = FileDialog.ACCESS_FILESYSTEM
 	file_dialog.set_use_native_dialog(true)
+	file_dialog.current_dir = "./SavedData/Graphs/"
+	file_dialog.set_filters(["*.graph"])
 
 	add_child(file_dialog)
 
 	file_dialog.file_selected.connect(_on_file_dialog_open_selected)
 	file_dialog.popup_centered_ratio()
-	"""
-	FileManager.open_selected_file("")
+
 func _on_file_dialog_open_selected(path: String):
 	FileManager.open_selected_file(path)
 
 func file_open_recent():
-
 	var recent_files = _get_recent_files()
 	if recent_files.is_empty():
 		print("No recent files found")
@@ -186,20 +185,26 @@ func file_open_recent():
 	popup.popup_centered_ratio(0.3)
 
 func file_save():
-	FileManager.save_file()
 	if not _has_current_file():
 		file_save_as()
 		return
 
-
-
+	FileManager.save_file()
 
 func file_save_as():
-	FileManager.save_file_as("")
+	var file_dialog = FileDialog.new()
+	file_dialog.file_mode = FileDialog.FILE_MODE_SAVE_FILE
+	file_dialog.access = FileDialog.ACCESS_FILESYSTEM
+	file_dialog.set_use_native_dialog(true)
+	file_dialog.current_dir = "./SavedData/Graphs/"
+	file_dialog.set_filters(["*.graph"])
+	add_child(file_dialog)
 
-func _on_file_dialog_save_selected(path: String):
+	file_dialog.file_selected.connect(_on_file_dialog_save_as_selected)
+	file_dialog.popup_centered_ratio()
+
+func _on_file_dialog_save_as_selected(path:String):
 	FileManager.save_file_as(path)
-	_update_current_file_path(path)
 
 
 func file_reload(): #TODO
@@ -215,13 +220,10 @@ func _get_recent_files() -> Array[String]:
 	return FileManager.get_recent_files()
 
 func _has_current_file() -> bool:
-	return FileManager.current_file_path != ""
+	return GlobalManager.graph_save.currentGraphPath != ""
 
-func _get_current_file_path() -> String:
-	return FileManager.current_file_path
-
-func _update_current_file_path(path: String):
-	FileManager.current_file_path = path
+func _get_current_graph_save_data():
+	return GlobalManager.graph_save
 
 
 ### EDIT

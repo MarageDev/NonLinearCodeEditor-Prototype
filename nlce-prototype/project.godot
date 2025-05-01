@@ -26,6 +26,10 @@ GlobalManager="*res://Global/global_manager.gd"
 
 window/size/borderless=true
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/kanban_tasks/plugin.cfg")
+
 [file_customization]
 
 folder_colors={

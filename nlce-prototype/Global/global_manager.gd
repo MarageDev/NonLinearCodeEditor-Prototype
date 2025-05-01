@@ -1,5 +1,6 @@
 extends Node
 
 var SavedColorSwatchesResourcePath:String = "res://SavedData/Swatches/SavedSwatches.tres"
-var currentGraphPath:String = ""
-var currentAssociatedFilePath:String = ""
+var graph_save:GraphSaveRes = GraphSaveRes.new()
+var GraphFileExtension:String = "graph"
+var current_file_path:String = ""
