@@ -2,6 +2,8 @@ extends Node
 
 var workspace:WorkspaceClass
 
+signal file_loaded(file_path:String)
+signal graph_loaded(graph_data:GraphDataRes)
 func open_selected_file(path:String):
 	load_graph_manual_serialization(path)
 
@@ -139,3 +141,5 @@ func load_graph_manual_serialization(path: String):
 				framed_nodes.append(node_map[node_name])
 
 		frame.set_framed_nodes(framed_nodes)
+
+	emit_signal("graph_loaded",graph_data)

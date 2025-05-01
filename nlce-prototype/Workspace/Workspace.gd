@@ -3,17 +3,26 @@ class_name WorkspaceClass
 @export var file_path: String = ""
 @export var separators: Array = []
 @onready var graph_edit: GraphEdit = $GraphEdit
+@onready var label: Label = $"../MarginContainer/Label"
 
 var code_graph_nodes:Array[CodeNodeClass] = []
 
 
 func _ready() -> void:
 	FileManager.workspace = self
-	GlobalManager.current_file_path = "res://CodeNode/CodeNode.tscn"
-	var blocks: Array = SeparateCodeBlocksInFile(file_path, separators)
+	GlobalManager.current_file_path = "res://CodeExamples/sum.py"
 
-	spawn_nodes_in_grid(blocks, graph_edit,GlobalManager.current_file_path,3)
+	FileManager.file_loaded.connect(file_loaded)
+	FileManager.graph_loaded.connect(graph_loaded)
 
+	var blocks: Array = SeparateCodeBlocksInFile(GlobalManager.current_file_path, separators)
+
+	spawn_nodes_in_grid(blocks, graph_edit,"res://CodeNode/CodeNode.tscn",3)
+	label.text = GlobalManager.current_file_path.get_file()
+func graph_loaded(graph_data:GraphDataRes):
+	label.text = graph_data.associated_code_file_path.get_file()
+func file_loaded(file_path:String):
+	label.text = file_path.get_file()
 func spawn_nodes_in_grid(blocks: Array, graph_edit: GraphEdit, node_scene_path: String, nodes_per_row: int = 4, spacing: Vector2 = Vector2(40, 40)) -> void:
 	var default_size:Vector2 = Vector2(300,300)
 	for i in range(blocks.size()):
