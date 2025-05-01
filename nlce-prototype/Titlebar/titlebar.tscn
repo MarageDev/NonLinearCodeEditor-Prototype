@@ -1,5 +1,6 @@
-[gd_scene load_steps=37 format=3 uid="uid://dodag2ea1vs35"]
+[gd_scene load_steps=38 format=3 uid="uid://dodag2ea1vs35"]
 
+[ext_resource type="Theme" uid="uid://0otub1cq8um6" path="res://theme.tres" id="1_hp4te"]
 [ext_resource type="Script" uid="uid://6jcaxm0feey3" path="res://Titlebar/titlebar_script.gd" id="1_t6lfk"]
 [ext_resource type="Texture2D" uid="uid://d3mhcbngtt7rq" path="res://nlce_logo.svg" id="2_qocq7"]
 
@@ -354,6 +355,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_hp4te")
 script = ExtResource("1_t6lfk")
 window_name = "Window Tilte"
 buttons_area_minimum_size = 136.0
