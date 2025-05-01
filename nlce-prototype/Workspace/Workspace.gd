@@ -10,7 +10,7 @@ var code_graph_nodes:Array[CodeNodeClass] = []
 
 func _ready() -> void:
 	FileManager.workspace = self
-	GlobalManager.current_file_path = "res://CodeExamples/sum.py"
+	GlobalManager.current_file_path = "res://CodeExamples/sum2.py"
 
 	FileManager.file_loaded.connect(file_loaded)
 	FileManager.graph_loaded.connect(graph_loaded)

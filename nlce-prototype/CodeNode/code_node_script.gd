@@ -143,3 +143,6 @@ func _node_title_edit(new_text: String):
 func _on_resize_request(new_size: Vector2) -> void:
 	code_edit.scroll_fit_content_height = false
 	code_edit.scroll_fit_content_width = false
+
+func _on_code_edit_text_changed() -> void:
+	data.content = code_edit.text

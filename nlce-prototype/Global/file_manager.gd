@@ -9,6 +9,7 @@ func open_selected_file(path:String):
 
 func save_file():
 	save_graph_manual_serialization(GlobalManager.graph_save.currentGraphPath)
+	save_code_to_file(GlobalManager.current_file_path)
 
 var saved_file_path:String
 
@@ -42,9 +43,19 @@ func get_recent_files()->Array[String]:
 func retrieve_whole_code() -> String:
 	var whole_code: String = ""
 	for i: CodeNodeClass in workspace.code_graph_nodes:
-		if i.CodeNodeAssociatedResource and i.CodeNodeAssociatedResource.content:
-			whole_code += i.CodeNodeAssociatedResource.content + "\n"
+		if i.data and i.data.content:
+			whole_code += i.data.content + "\n"
 	return whole_code
+
+func save_code_to_file(file_path: String):
+	if not FileAccess.file_exists(file_path):
+		return
+
+	var file := FileAccess.open(file_path, FileAccess.WRITE)
+	if file:
+		file.store_string(retrieve_whole_code())
+		file.close()
+
 func save_graph_manual_serialization(path: String):
 	var graph_data = GraphDataRes.new()
 	graph_data.associated_code_file_path = GlobalManager.current_file_path

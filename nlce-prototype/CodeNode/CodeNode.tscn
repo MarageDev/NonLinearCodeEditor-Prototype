@@ -58,3 +58,5 @@ auto_brace_completion_enabled = true
 auto_brace_completion_highlight_matching = true
 
 [connection signal="resize_request" from="." to="." method="_on_resize_request"]
+[connection signal="text_changed" from="MarginContainer/CodeEdit" to="." method="_on_code_edit_text_changed"]
+[connection signal="text_set" from="MarginContainer/CodeEdit" to="." method="_on_code_edit_text_set"]
