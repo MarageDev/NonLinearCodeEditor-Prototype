@@ -10,7 +10,7 @@ var code_graph_nodes:Array[CodeNodeClass] = []
 
 func _ready() -> void:
 	FileManager.workspace = self
-	GlobalManager.current_file_path = "res://CodeExamples/sum2.py"
+	GlobalManager.current_file_path = "res://CodeExamples/sum.py"
 
 	FileManager.file_loaded.connect(file_loaded)
 	FileManager.graph_loaded.connect(graph_loaded)
@@ -23,6 +23,20 @@ func graph_loaded(graph_data:GraphDataRes):
 	label.text = graph_data.associated_code_file_path.get_file()
 func file_loaded(file_path:String):
 	label.text = file_path.get_file()
+	clear_graph_edit()
+	GlobalManager.current_file_path = file_path
+
+	var blocks: Array = SeparateCodeBlocksInFile(GlobalManager.current_file_path, separators)
+
+	spawn_nodes_in_grid(blocks, graph_edit,"res://CodeNode/CodeNode.tscn",3)
+
+func clear_graph_edit():
+	# Clear existing nodes and frames
+	for child in graph_edit.get_children(true):
+		if child is CodeNodeClass or child is RectFrameClass:
+			child.queue_free()
+
+
 func spawn_nodes_in_grid(blocks: Array, graph_edit: GraphEdit, node_scene_path: String, nodes_per_row: int = 4, spacing: Vector2 = Vector2(40, 40)) -> void:
 	var default_size:Vector2 = Vector2(300,300)
 	for i in range(blocks.size()):

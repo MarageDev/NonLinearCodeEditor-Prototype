@@ -4,7 +4,10 @@ var workspace:WorkspaceClass
 
 signal file_loaded(file_path:String)
 signal graph_loaded(graph_data:GraphDataRes)
+
 func open_selected_file(path:String):
+	emit_signal("file_loaded",path)
+func open_selected_graph_file(path:String):
 	load_graph_manual_serialization(path)
 
 func save_file():

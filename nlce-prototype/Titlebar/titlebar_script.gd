@@ -151,8 +151,8 @@ func file_open_file():
 	file_dialog.file_mode = FileDialog.FILE_MODE_OPEN_FILE
 	file_dialog.access = FileDialog.ACCESS_FILESYSTEM
 	file_dialog.set_use_native_dialog(true)
-	file_dialog.current_dir = "./SavedData/Graphs/"
-	file_dialog.set_filters(["*.graph"])
+	file_dialog.current_dir = "./CodeExamples"
+	#file_dialog.set_filters(["*.graph"])
 
 	add_child(file_dialog)
 
@@ -196,8 +196,8 @@ func file_save_as():
 	file_dialog.file_mode = FileDialog.FILE_MODE_SAVE_FILE
 	file_dialog.access = FileDialog.ACCESS_FILESYSTEM
 	file_dialog.set_use_native_dialog(true)
-	file_dialog.current_dir = "./SavedData/Graphs/"
-	file_dialog.set_filters(["*.graph"])
+	file_dialog.current_dir = "./CodeExamples"
+	#file_dialog.set_filters(["*.graph"])
 	add_child(file_dialog)
 
 	file_dialog.file_selected.connect(_on_file_dialog_save_as_selected)
