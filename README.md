@@ -10,9 +10,9 @@
 <br>
 
 # Description
-NLCE lets you load code files from any language with the proper syntax highlighting (you can even create your own) and display it as blocks that are automatically separated in the window (an option to manually separate the file will be available in the future).
+NLCE lets you load code files from any language with the proper syntax highlighting (you can even create your own) and display it as blocks automatically separated in the window (an option to manually separate the file will be available in the future).
 
-This allows to have a more visual approach of a file and organize with comments and frames your code to make it easier to work with, this is especially useful for large files containing a lot of lines.
+This allows you to have a more visual approach to a file and organize with comments and frames your code to make it easier to work with, this is especially useful for large files containing a lot of lines.
 
 ## State of Art
 
