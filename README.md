@@ -21,6 +21,7 @@ The only mention of a Non-linear code editor I have seen online was from the blo
 > ***Note :*** I have not seen it before starting the project, but the reasoning and ideas under the <i>A new proposal</i> header are also the ones that drove me to work on this project.</h6>
 # Screenshots
 ## Development screenshot ( not the final product )
+![](https://github.com/MarageDev/NonLinearCodeEditor-Prototype/blob/main/Capture%20d%E2%80%99%C3%A9cran%202025-05-03%20200505.png)
 # Installation
 
 To download the project, you just have to go in the [Releases](https://github.com/MarageDev/NonLinearCodeEditor-Prototype/releases) section and find the latest one.
