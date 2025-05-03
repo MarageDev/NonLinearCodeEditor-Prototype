@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bth4q2luc2lpp"]
+[gd_scene load_steps=6 format=3 uid="uid://bth4q2luc2lpp"]
 
 [ext_resource type="PackedScene" uid="uid://dodag2ea1vs35" path="res://Titlebar/titlebar.tscn" id="1_glv2v"]
 [ext_resource type="Script" uid="uid://b0i6cqpg3smp4" path="res://Main.gd" id="1_r0du0"]
@@ -12,6 +12,11 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0.117647, 0.117647, 0.117647, 1)
 corner_detail = 1
+
+[sub_resource type="GDScript" id="GDScript_r0du0"]
+resource_name = "a"
+script/source = "extends Button
+"
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -58,3 +63,14 @@ anchor_bottom = 0.0
 offset_bottom = 36.0
 grow_vertical = 1
 window_name = "NCLE"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 58.0
+offset_right = 163.0
+offset_bottom = 89.0
+text = "Print Graph Files"
+script = SubResource("GDScript_r0du0")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

@@ -7,6 +7,8 @@ signal graph_loaded(graph_data:GraphDataRes)
 
 func open_selected_file(path:String):
 	emit_signal("file_loaded",path)
+	if find_attached_possible_graph_to_code_file(path) :
+		print("ah file ok")
 func open_selected_graph_file(path:String):
 	load_graph_manual_serialization(path)
 
@@ -61,7 +63,7 @@ func save_code_to_file(file_path: String):
 
 func save_graph_manual_serialization(path: String):
 	var graph_data = GraphDataRes.new()
-	graph_data.associated_code_file_path = GlobalManager.current_file_path
+	graph_data.associated_code_file_path = ProjectSettings.globalize_path(GlobalManager.current_file_path)
 
 	var node_saving_index:int = 0
 	# Save nodes
@@ -90,11 +92,16 @@ func save_graph_manual_serialization(path: String):
 				n.append(i.name)
 			frame_data.framed_graph_nodes = n
 			graph_data.frames.append(frame_data)
-	var res_path:String = path.get_basename() + ".res"
-	ResourceSaver.save( graph_data,res_path)
-	var new_path: String = path.get_basename() + ".graph"
+
+	# Use global path for saving
+	var absolute_path = ProjectSettings.globalize_path(path.get_basename())
+	var res_path = absolute_path + ".res"
+	var new_path = absolute_path + ".graph"
+
+	ResourceSaver.save(graph_data, res_path)
 	DirAccess.remove_absolute(new_path)
 	DirAccess.rename_absolute(res_path, new_path)
+
 
 func load_graph_manual_serialization(path: String):
 	if not FileAccess.file_exists(path):
@@ -157,3 +164,34 @@ func load_graph_manual_serialization(path: String):
 		frame.set_framed_nodes(framed_nodes)
 
 	emit_signal("graph_loaded",graph_data)
+
+func retrieve_graph_data_from_file(path:String)->GraphDataRes:
+	if not FileAccess.file_exists(path):
+		push_error("no file to load")
+		return
+
+	if path.get_extension() != GlobalManager.GraphFileExtension:
+		return
+
+	var temp_path = path.get_basename() + ".res"
+	if FileAccess.file_exists(temp_path):
+		DirAccess.remove_absolute(temp_path)
+	DirAccess.copy_absolute(path, temp_path)
+
+	var graph_data = ResourceLoader.load(temp_path) as GraphDataRes
+	if not graph_data:
+		push_error("Failed to load graph data!")
+		DirAccess.remove_absolute(temp_path)
+		return
+
+	DirAccess.remove_absolute(temp_path)
+
+	return graph_data
+
+func find_attached_possible_graph_to_code_file(path: String):
+	var f := DirAccess.get_files_at("res://SavedData/Graphs/")
+	for i in f:
+		var d := FileManager.retrieve_graph_data_from_file("res://SavedData/Graphs/" + i)
+		if ProjectSettings.globalize_path(d.associated_code_file_path) == path:
+			return d
+	return null
